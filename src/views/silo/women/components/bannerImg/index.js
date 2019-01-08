@@ -2,6 +2,7 @@ import React,{Component} from "react"
 import {getBanner} from '../../model'
 import './index.scss'
 import BannerInfo from '../bannerInfo'
+import CategoryList from '../categoryList'
 class BannerImg extends Component {
 	constructor(props){
 		super(props)
@@ -14,6 +15,7 @@ class BannerImg extends Component {
 		return <div className="bannerImg">
 				<img src={this.state.bannerInfo.main_image} alt=""/>
 				<BannerInfo></BannerInfo>
+				<CategoryList></CategoryList>
 		</div>
 	}
 

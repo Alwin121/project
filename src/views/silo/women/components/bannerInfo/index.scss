@@ -1,8 +1,14 @@
 .bannerInfo {
     position: absolute;
     left:0px;
-    bottom:0px;
+    bottom:8.7rem;
     width:100%;
+    color:#fff;
+
+    strong {
+        font-size:26px;
+        line-height:42px;
+    }
     span {
         display: block;
     }
