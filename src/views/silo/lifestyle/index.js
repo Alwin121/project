@@ -1,4 +1,5 @@
 import React,{Component} from "react"
+import {getSwiper} from "./model"
 
 class Lifestyle extends Component {
 	render(){
@@ -6,7 +7,13 @@ class Lifestyle extends Component {
 		return <div>
 			lifestyle
 		</div>
-	}
-}
+	}//render
+	componentWillMount(){
+
+		getSwiper().then(res=>{
+			console.log(res)
+		})//then	
+	}//componentWillMount
+}//Lifestyle
 
 export default Lifestyle
