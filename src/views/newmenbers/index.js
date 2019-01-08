@@ -1,12 +1,12 @@
 import React,{Component} from "react"
 
-class Center extends Component {
+class Newmenbers extends Component {
 	render(){
 		console.log(this);
 		return <div>
-			Center
+			Newmenbers
 		</div>
 	}
 }
 
-export default Center
+export default Newmenbers

@@ -24,6 +24,7 @@ import productlist from "../views/productlist"
 import brandwall from "../views/brandwall"
 import personalcenter from "../views/personalcenter"
 import shoppingcar from "../views/shoppingcar"
+import index from "../views/silo/index"
 
 
 const router = (
@@ -33,16 +34,17 @@ const router = (
 		<App>
           <Switch>		  
 			<Route path="/brand" component={Brand}/>
-            <Route path="/silo/index" render={()=>
+            <Route path="/silo" render={()=>
 				<Silo>
 				    <Switch>
 						<Route path="/silo/women" component={women}/>
+						<Route path="/silo/index" component={index}/>
 						<Route path="/silo/men" component={men}/>
 						<Route path="/silo/cosmetics" component={cosmetics}/>
 						<Route path="/silo/crossborder" component={crossborder}/>
 						<Route path="/silo/kide" component={kide}/>
 						<Route path="/silo/lifestyle" component={lifestyle}/>
-                        <Redirect from="/silo" to="/silo/index"/>
+                        
 					</Switch>
 				</Silo>
 			}/>

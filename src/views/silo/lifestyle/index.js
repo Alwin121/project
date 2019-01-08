@@ -1,12 +1,12 @@
 import React,{Component} from "react"
 
-class Center extends Component {
+class Lifestyle extends Component {
 	render(){
-		console.log(this);
+		// console.log(this);
 		return <div>
-			Center
+			lifestyle
 		</div>
 	}
 }
 
-export default Center
+export default Lifestyle

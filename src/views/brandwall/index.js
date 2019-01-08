@@ -1,12 +1,12 @@
 import React,{Component} from "react"
 
-class Center extends Component {
+class Brandwall extends Component {
 	render(){
 		console.log(this);
 		return <div>
-			Center
+			Brandwall
 		</div>
 	}
 }
 
-export default Center
+export default Brandwall

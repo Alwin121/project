@@ -1,12 +1,12 @@
 import React,{Component} from "react"
 
-class Men extends Component {
+class Index extends Component {
 	render(){
 		console.log(this);
 		return <div>
-			Men
+			index
 		</div>
 	}
 }
 
-export default Men
+export default Index

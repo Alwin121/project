@@ -1,12 +1,12 @@
 import React,{Component} from "react"
 
-class Center extends Component {
+class Upcoming extends Component {
 	render(){
 		console.log(this);
 		return <div>
-			Center
+			Upcoming
 		</div>
 	}
 }
 
-export default Center
+export default Upcoming
