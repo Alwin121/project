@@ -1,10 +1,13 @@
 import React,{Component} from "react"
+import BannerImg from './components/bannerImg'
+
 
 class Women extends Component {
 	render(){
-		console.log(this);
-		return <div>
-			Women
+		return <div className="women clearfix">
+			<BannerImg/>
+			
+			
 		</div>
 	}
 }
