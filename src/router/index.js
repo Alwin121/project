@@ -5,7 +5,8 @@ import {
 	Redirect //重定向组件  
 } from "react-router-dom"
 import App from "../App"
-import Barand from "../views/barand"
+import React from "react"
+import Brand from "../views/brand"
 import Silo from "../views/silo"
 import women from "../views/silo/women"
 import men from "../views/silo/men"
@@ -16,7 +17,6 @@ import lifestyle from "../views/silo/lifestyle"
 import upcoming from "../views/upcoming"
 import Login from "../views/login"
 import mobile from "../views/login/mobile"
-import upcoming from "../views/upcoming"
 import welcome from "../views/welcome"
 import newmenbers from "../views/newmenbers"
 import brand from "../views/brand"
@@ -28,11 +28,11 @@ import shoppingcar from "../views/shoppingcar"
 
 const router = (
 
-	<Provider store={store}>
+
 	<Router>
 		<App>
           <Switch>		  
-			<Route path="/barand" component={Barand}/>
+			<Route path="/brand" component={Brand}/>
             <Route path="/silo/index" render={()=>
 				<Silo>
 				    <Switch>
@@ -67,7 +67,7 @@ const router = (
 			</Switch>
 		</App>
 	</Router>
-	</Provider>
+
 )
 
 export default router;
