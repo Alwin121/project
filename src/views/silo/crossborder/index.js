@@ -1,6 +1,7 @@
 import React,{Component} from "react"
 import { PullToRefresh, Button } from 'antd-mobile';
 
+<<<<<<< HEAD
 class Demo extends React.Component {
 	constructor(props) {
 	  super(props);
@@ -10,6 +11,14 @@ class Demo extends React.Component {
 		height: document.documentElement.clientHeight,
 		data: [],
 	  };
+=======
+class Crossborder extends Component {
+	render(){
+		console.log(this);
+		return <div>
+			Crossborder
+		</div>
+>>>>>>> 0d43a34bdfaa3c8cddd908d4b7d510fb52240174
 	}
   
 	componentDidMount() {
@@ -50,4 +59,8 @@ class Demo extends React.Component {
   }
 
 
+<<<<<<< HEAD
 export default Demo
+=======
+export default Crossborder
+>>>>>>> 0d43a34bdfaa3c8cddd908d4b7d510fb52240174

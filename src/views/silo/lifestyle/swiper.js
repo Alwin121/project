@@ -1,12 +1,12 @@
 import React,{Component} from "react"
 
-class Kide extends Component {
+class Swiper extends Component {
 	render(){
 		// console.log(this);
 		return <div>
-			Kide
+			Swiper
 		</div>
 	}
 }
 
-export default Kide
+export default Swiper

@@ -1,12 +1,13 @@
 import React,{Component} from "react"
 
-class Center extends Component {
+class Silo extends Component {
 	render(){
 		console.log(this);
 		return <div>
-			Center
+			Silo
+			{this.props.children}
 		</div>
 	}
 }
 
-export default Center
+export default Silo

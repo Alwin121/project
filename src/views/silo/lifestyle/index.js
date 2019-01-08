@@ -1,12 +1,19 @@
 import React,{Component} from "react"
+import {getSwiper} from "./model"
 
-class Center extends Component {
+class Lifestyle extends Component {
 	render(){
-		console.log(this);
+		// console.log(this);
 		return <div>
-			Center
+			lifestyle
 		</div>
-	}
-}
+	}//render
+	componentWillMount(){
 
-export default Center
+		getSwiper().then(res=>{
+			console.log(res)
+		})//then	
+	}//componentWillMount
+}//Lifestyle
+
+export default Lifestyle
