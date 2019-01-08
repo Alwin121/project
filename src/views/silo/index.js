@@ -4,7 +4,7 @@ class Silo extends Component {
 	render(){
 		console.log(this);
 		return <div>
-			Silo
+			{/* Silo */}
 			{this.props.children}
 		</div>
 	}
