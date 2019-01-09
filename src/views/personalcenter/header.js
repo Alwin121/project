@@ -13,10 +13,20 @@ class Personalcenter extends React.Component {
   };
   onSelect = (opt) => {
     console.log(opt.props.value);
+    // this.props.history.push("/silo")
+    
     this.setState({
       visible: false,
       selected: opt.props.value,
     });
+    if(opt.props.value==="首页"){
+        console.log(this.state.selected,56565656)
+        this.props.history.push("/silo")
+    }else if(opt.props.value==="购物袋"){
+        this.props.history.push("/shoppingcar")
+    }else{
+        this.props.history.push("/login")
+    }
   };
   handleVisibleChange = (visible) => {
     this.setState({
@@ -31,6 +41,7 @@ class Personalcenter extends React.Component {
         rightContent={
           <Popover mask="true"
             overlayClassName="fortest"
+           
             overlayStyle={{ color: 'currentColor'}}
             visible={this.state.visible}
             overlay={[
@@ -68,9 +79,10 @@ class Personalcenter extends React.Component {
     </div>);
   }
   handleClick(id){
-      console.log(this.props)
+    //   console.log(this.props)
 
-    //  this.props.go(-1)
+     this.props.history.go(-1)
   }
+
 }
 export default Personalcenter

@@ -1,9 +1,12 @@
-.bannerInfo {
+.women_bannerInfo {
     position: absolute;
     left:0px;
     bottom:8.56rem;
     width:100%;
     color:#fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     strong {
         font-size:26px;

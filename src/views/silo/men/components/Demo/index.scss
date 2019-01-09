@@ -1,0 +1,58 @@
+$baseFontSize:16px;
+// pixels to rems 
+@function pxToRem($px) {
+      @return $px / $baseFontSize * 1rem;
+}
+html {
+    font-size: $baseFontSize;
+    -ms-touch-action: none;
+}
+
+.men_contain {
+    width:100%;
+    background: #fff;
+    padding:0;
+    margin:0;
+    
+
+    .contain_box {
+        width:100%;
+        height:100%;
+        position: relative;
+
+        .shade {
+            width:100%;
+            height:100%;
+            background: #000;
+            opacity: 0.2;
+            position: absolute;
+            top:0;
+            left:0;
+        }
+
+        .imglist {
+            width:100%;
+            position: relative;
+
+            img {
+                width:100%;
+                display: block;
+            }
+        }
+
+        .listinfo {
+            width:100%;
+            text-align: left;
+            color:#fff;
+            font-size:16px;
+            position: absolute;
+            left:0;
+            bottom:0;
+            padding:0 0 10px 10px;
+
+            .text {
+                line-height:22px;
+            }
+        }
+    }
+}

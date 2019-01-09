@@ -16,7 +16,7 @@ element.style{
 
     .title{
         position: absolute;
-        top: 250px;
+        top: 300px;
         left: 50%;
         color: #fff;
         transform:translate(-50%);
@@ -91,4 +91,7 @@ margin: 0;
             color: #ccc;
         }
     }
+}
+body{
+    background: #fff;
 }
