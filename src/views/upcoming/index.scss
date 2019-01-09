@@ -18,7 +18,7 @@ html {
         text-align: left;
         text-indent: pxToRem(10px);
     }
-    p{
+    p.upcoming_p{
         text-align: left;
         margin-top:pxToRem(10px) ;
         margin-bottom:pxToRem(10px) ;
@@ -32,7 +32,7 @@ html {
     }
     div{
         position: relative;
-        ul{
+        ul.upcoming_ul{
             position: absolute;
             left: 0;
             top:55%;
@@ -40,7 +40,7 @@ html {
             text-align: left;
             color:#fff;
             width: 100%;
-            li{
+            li.upcoming_li{
                 height:20px;
                 margin-bottom: 5px;
                 font-size: 14px;
@@ -51,7 +51,7 @@ html {
             }
             
         }
-        ul:before{
+        ul.upcoming_ul:before{
             content: '';
             position: absolute;
             display: block;
@@ -60,9 +60,9 @@ html {
             width:100%;
 
             top: -12px;
-            height: 130px;
+            height: pxToRem(103px)
         }
-        span{
+        span.upcoming_span{
             display: block;
             position: absolute;
             right: pxToRem(15px);

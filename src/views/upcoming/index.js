@@ -2,6 +2,7 @@ import React,{Component} from "react"
 import './index.scss'
 import axios from 'axios'
 import {connect} from "react-redux"
+import Footer from "../../components/footer"
 class Upcoming extends Component {
 
 	componentDidMount(){
@@ -19,18 +20,19 @@ class Upcoming extends Component {
 	render(){
 		return <div className="upcoming_div">
 			<h1>距离开场还NaN个小时</h1>
-			<p>订阅您喜欢的品牌，我们将在活动当天提醒您！</p>
+			<p className="upcoming_p">订阅您喜欢的品牌，我们将在活动当天提醒您！</p>
 			{
 				this.props.lys.map(item=><div key={item.categoryId} >
 					<img src={item.imagePcUrl}/>
-					<ul>
-						<li>{item.englishName}</li>
-						<li>{item.chineseName}</li>
-						<li>{item.discount}<span>开售提醒</span></li>
+					<ul className="upcoming_ul">
+						<li className="upcoming_li">{item.englishName}</li>
+						<li className="upcoming_li">{item.chineseName}</li>
+						<li className="upcoming_li">{item.discount}<span className="upcoming_span">开售提醒</span></li>
 					</ul>
 					</div>
 					)
 			}
+			<Footer></Footer>
 		</div>
 	}
 }
