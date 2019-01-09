@@ -5,7 +5,9 @@ import { PullToRefresh} from 'antd-mobile';
 import React from "react"
 import ReactDOM from 'react-dom'
 import axios from 'axios'
+import Footer from '../../../components/footer'
 import './index.scss'
+import {NavLink} from "react-router-dom"
 
 
 
@@ -105,9 +107,20 @@ class Add extends React.Component {
         }
 			{
 				this.state.num>3?
-				<div className="text">
-				<p>首页|客户端|管理端口</p>
-				</div>:
+        <footer>
+               <p className="header_p1">400 - 664 - 6698</p>
+               
+                  <div>
+                   <h3><NavLink to="/silo/index2">首页</NavLink></h3>
+                   <h3><NavLink to="/silo/index2">客户端</NavLink></h3>
+                   <h3><NavLink to="/login/mobile" >登录</NavLink></h3>
+                   <h3><NavLink to="/login/mobile" >注册</NavLink></h3>
+                  </div>
+                   
+               
+               <p className="header_p2">浙ICP备16004860号-1</p>
+            </footer>
+            :
 				null
 			}
 		</div>
