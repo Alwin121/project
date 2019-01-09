@@ -53,14 +53,14 @@ class Header extends Component{
                     </NavLink></li>
                 </ul>
                 <ul className="nav_ul">
-                    <li><NavLink to="/silo/index2" activeClassName="active" >推荐</NavLink></li>
-                    <li><NavLink to="/silo/crossborder" activeClassName="active">海外</NavLink></li>
-                    <li><NavLink to="/silo/women" activeClassName="active">女士</NavLink></li>
-                    <li><NavLink to="/silo/men" activeClassName="active">男士</NavLink></li>
-                    <li><NavLink to="/silo/cosmetics" activeClassName="active">美妆</NavLink></li>
-                    <li><NavLink to="/silo/lifestyle" activeClassName="active">家居</NavLink></li>
-                    <li><NavLink to="/silo/kids" activeClassName="active">婴童</NavLink></li>
-                    <li><NavLink to="/upcoming" activeClassName="active">即将上新</NavLink></li>
+                    <li><NavLink to="/silo/index2" activeClassName="active" replace>推荐</NavLink></li>
+                    <li><NavLink to="/silo/crossborder" activeClassName="active" replace>海外</NavLink></li>
+                    <li><NavLink to="/silo/women" activeClassName="active" replace>女士</NavLink></li>
+                    <li><NavLink to="/silo/men" activeClassName="active" replace>男士</NavLink></li>
+                    <li><NavLink to="/silo/cosmetics" activeClassName="active" replace>美妆</NavLink></li>
+                    <li><NavLink to="/silo/lifestyle" activeClassName="active" replace>家居</NavLink></li>
+                    <li><NavLink to="/silo/kids" activeClassName="active" replace>婴童</NavLink></li>
+                    <li><NavLink to="/upcoming" activeClassName="active" replace>即将上新</NavLink></li>
                 </ul>
             </div>
         </div>
