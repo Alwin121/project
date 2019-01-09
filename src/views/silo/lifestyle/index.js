@@ -1,27 +1,118 @@
-import React,{Component} from "react"
 
 import Swiper from "./swiper";
 import Hitarea from "./Hitarea";
-// import ListContainer from "./11";
-// import Ad from "./Ad";
-import Acc from "./3";
-// import Abb from "./22";
+import { PullToRefresh} from 'antd-mobile';
+import React from "react"
+import ReactDOM from 'react-dom'
+import axios from 'axios'
+import './index.scss'
 
-class Lifestyle extends Component {
-	render(){
-		// console.log(this);
-		return <div>
-			<Swiper></Swiper>
-			<Hitarea></Hitarea>
-			{/* <Ad></Ad> */}
-			{/* <ListContainer></ListContainer> */}
-			{/* <Abb></Abb> */}
-			<Acc></Acc>
-			lifestyle
 
+
+function genData() {
+  const dataArr = [];
+  for (let i = 0; i < 20; i++) {
+    dataArr.push(i);
+  }
+  return dataArr;
+}
+
+class Add extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      refreshing: false,
+      down: true,
+      height: document.documentElement.clientHeight,
+      data: [],
+      datalist:[],
+      num:1
+    };
+  }
+
+  componentDidMount() {
+    const hei = this.state.height - ReactDOM.findDOMNode(this.ptr).offsetTop;
+    axios({
+        url:`http://www.mei.com/appapi/silo/eventForH5?categoryId=lifestyle&pageIndex=1&timestamp=1546944734379&summary=c885aaa8145c3653d841fe3b0fced752&platform_code=H5`,
+        
+    }).then(res=>{
+        // console.log(res.data.eventList,3333);
+        this.setState({
+            height: hei,
+            data: genData(),
+            datalist:res.data.eventList,
+			num:this.state.num+1
+        })
+      
+    })
+    // setTimeout(() => this.setState({
+    //   height: hei,
+    //   data: genData(),
+    // }), 0);
+  }
+
+  render() {
+    return (<div>
+        
+      {/* <Button
+        style={{ marginBottom: 15 }}
+        onClick={() => this.setState({ down: !this.state.down })}
+      >
+        direction: {"up"}
+      </Button> */}
+      <PullToRefresh
+        damping={60}
+        ref={el => this.ptr = el}
+        style={{
+          height: this.state.height,
+          overflow: 'auto',
+        }}
+        indicator={this.state.down ? {} : { deactivate: '上拉可以刷新' }}
+        direction={this.state.num<=3?'up':'down'}
+        refreshing={this.state.refreshing}
+        onRefresh={() => {
+            this.setState({ refreshing: true });
+            axios({
+                url:`http://www.mei.com/appapi/silo/eventForH5?categoryId=lifestyle&pageIndex=${this.state.num}&timestamp=1546944734379&summary=c885aaa8145c3653d841fe3b0fced752&platform_code=H5`,
+                
+            }).then(res=>{
+                // console.log(res.data.eventList,39999999);
+                this.setState({ refreshing: false,
+                datalist:[...this.state.datalist,...res.data.eventList],
+				num:this.state.num+1
+                });
+                
+        })
+        
+
+        }}
+      >
+				<Swiper></Swiper>
+     			<Hitarea></Hitarea>
+       <div id="ad">
+        {
+            this.state.datalist.map(item=>
+            <ul key={item.categoryId}>
+                <li>
+                    <p>{item.englishName}</p>
+                    <p>{item.chineseName}</p>
+                    <p>{item.discountText}</p>
+                </li>
+                <img src={item.imageUrl}/>
+				
+            </ul>
+                )
+        }
+			{
+				this.state.num>3?
+				<div className="text">
+				<p>首页|客户端|管理端口</p>
+				</div>:
+				null
+			}
 		</div>
-	}//render
-	
-}//Lifestyle
-
-export default Lifestyle
+      </PullToRefresh>
+    </div>);
+  }
+}
+export default Add  

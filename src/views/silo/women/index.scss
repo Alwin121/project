@@ -1,3 +1,13 @@
+$baseFontSize:16px;
+// pixels to rems 
+@function pxToRem($px) {
+      @return $px / $baseFontSize * 1rem;
+}
+html {
+    font-size: $baseFontSize;
+    -ms-touch-action: none;
+}
+
 .clearfix:after {
     content: ".";
     display: block;
@@ -13,10 +23,5 @@
     height:100%;
     padding:0;
     margin:0;
-    font-size:26.67vw;
-    
-
-    img {
-        border:0;
-    }
+    font-size: pxToRem(16px);
 }

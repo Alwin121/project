@@ -9,10 +9,10 @@ class Footer extends Component{
             <footer>
                <p className="header_p1">400 - 664 - 6698</p>
                <ul>
-                   <li><NavLink to="/silo/index2"  replace>首页</NavLink></li>
-                   <li><NavLink to="/silo/index2"  replace>客户端</NavLink></li>
-                   <li><NavLink to="/login/mobile"  replace>登录</NavLink></li>
-                   <li><NavLink to="/login/mobile"  replace>注册</NavLink></li>
+                   <li><NavLink to="/silo/index2">首页</NavLink></li>
+                   <li><NavLink to="/silo/index2">客户端</NavLink></li>
+                   <li><NavLink to="/login/mobile" >登录</NavLink></li>
+                   <li><NavLink to="/login/mobile" >注册</NavLink></li>
                </ul>
                <p className="header_p2">浙ICP备16004860号-1</p>
             </footer>

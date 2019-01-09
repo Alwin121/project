@@ -35,7 +35,7 @@ class Index extends Component {
 		axios({
 			url:`http://www.mei.com/appapi/home/eventForH5?params=%7B%7D&timestamp=1546942566729&summary=ba15bb44512a794772ce0a8c7da059e2&platform_code=H5`
 		}).then(res=>{
-			console.log(res.data.lists)
+			//console.log(res.data.lists)
 			this.setState({
 				datalist:res.data.lists
 
