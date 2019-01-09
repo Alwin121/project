@@ -1,4 +1,12 @@
-
+$baseFontSize:16px;
+// pixels to rems 
+@function pxToRem($px) {
+      @return $px / $baseFontSize * 1rem;
+}
+html {
+    font-size: $baseFontSize;
+    -ms-touch-action: none;
+}
 .login_div{
     width:100%;
     position: absolute;
@@ -19,57 +27,57 @@
         }
         li:nth-of-type(1){
             text-align: left;
-            width: 57px;
-            height: 44px;
+            width:pxToRem(54px);
+            height:pxToRem(24px);
             box-sizing: border-box;
             position: relative;
            // padding: 14px 0 13px;
-           margin-left:20px;
-            line-height: 44px;         
-            font-size: 16px;
+           margin-left:pxToRem(24px);
+            line-height: pxToRem(44px);         
+            font-size: pxToRem(16px);
             a{
                 display: inline-block;
-                width:40px;
+                width:pxToRem(40px);
             }
         }
         li:nth-of-type(2){
             flex:1;
             text-align: center;
-            height: 44px;
-            line-height:44px;
+            height: pxToRem(44px);
+            line-height:pxToRem(44px);
             position: relative;
-            margin-right:20px;
+            margin-right:pxToRem(20px);
             a{
                 display: inline-block;
-                width: 268px;
-                height: 34px;
+                width: pxToRem(268px);
+                height:pxToRem(34px);
                 overflow: hidden;
-                margin-top: 7px;
+                margin-top: pxToRem(7px);
                 background:#6a5b4f;
                 strong{
-                    max-width: 221px;
+                    max-width:pxToRem(221px);
                     overflow: hidden;
                     display: inline-block;
                     vertical-align: top;
-                    line-height: 34px;
+                    line-height: pxToRem(34px);
                     font-weight: 400;
-                    font-size: 16px;
+                    font-size: pxToRem(16px);
                    span{
                        i{
-                           font-size:16px;
-                           margin-right:10px;
+                           font-size:pxToRem(16px);
+                           margin-right:pxToRem(10px);
                        }
                    }
                 }
             }
         }
         li:nth-of-type(3){
-            height: 44px;
-            line-height: 44px;
+            height: pxToRem(44px);
+            line-height:  pxToRem(44px);
             position: relative;
             i{
-                font-size:25px;
-                margin-right:10px;
+                font-size:pxToRem(25px);
+                margin-right: pxToRem(10px);
             }
         }
 
@@ -77,27 +85,27 @@
 }
 .nav_ul{
     list-style: none;
-    height: 44px;
-    font-size: 16px;
-    width: 400px;
+    height: pxToRem(44px);
+    font-size: pxToRem(16px);
+    width: 100%;
     .active{
-        border-bottom:2px solid #ccc;
+        border-bottom:pxToRem(2px) solid #ccc;
     }
     li{
         float:left;
         text-align: center;
-        height: 44px;
-        line-height: 44px;
+        height:pxToRem(44px);
+        line-height: pxToRem(44px);
         position: relative;
         box-sizing: border-box;
-        width: 40px;
-        margin:0 2px;
+        width: pxToRem(40px);
+        
         a{
             color:#fff;
         }
     }
     li:nth-of-type(8){
-        width:88px;
+        width:pxToRem(88px);
     }
 }
 .aaa{
@@ -122,7 +130,7 @@
             }
         }
         .active{
-            border-bottom:2px solid rgb(10, 9, 9);
+            border-bottom:pxToRem(2px) solid rgb(10, 9, 9);
         }
     }
 }
