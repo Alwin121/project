@@ -1,0 +1,39 @@
+footer{
+    height:150px;
+    //position: fixed;
+    left:0px;
+    bottom:0px;
+    p{
+        color:#000;
+    }
+    ul{
+        list-style: none;
+         //width:100%;
+         height:35px;
+         line-height: 35px;        
+        li{
+            float: left;
+            text-align: center;
+          
+            a{  
+                display:inline-block;
+                text-align: center;
+                color:#000;
+                height:25px;
+                 padding:0px 10px;
+                line-height: 25px;
+                border-right:1px solid #ccc;
+            }
+        }
+        li:nth-of-type(4) a{
+            border-right:none;
+        }
+        li:nth-of-type(1){
+            margin-left:70px;
+        }
+    }
+    .header_p2{
+        color:#666;
+        font-size:14px;
+    }
+}
