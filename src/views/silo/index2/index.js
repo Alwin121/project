@@ -1,7 +1,7 @@
 import React,{Component} from "react"
 import "./index.scss"
 import axios from "axios"
-
+import Footer from "../../../components/footer" 
 class Index extends Component {
 	constructor(props) { 
 		super(props);
@@ -74,6 +74,7 @@ class Index extends Component {
 					</div>
 					)
 			}
+			<Footer/>
 		</div>
 		
 	}

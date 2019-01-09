@@ -10,10 +10,10 @@ class Header extends Component{
                     <li><NavLink to="/login/mobile"  replace>登录</NavLink></li>
                     <li><NavLink to="/silo/index2"  replace>
                         <input type="text"/>
-                        <i class="iconfont icon-search"></i>
+                        <i className="iconfont icon-search"></i>
                     </NavLink></li>
                     <li><NavLink to="/shoppingcar"  replace>
-                    <i class="iconfont icon-gifts"></i>
+                    <i className="iconfont icon-gifts"></i>
                     </NavLink></li>
                 </ul>
             </div>
