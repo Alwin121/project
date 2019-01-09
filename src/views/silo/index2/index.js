@@ -4,7 +4,7 @@ class Index extends Component {
 	render(){
 		console.log(this);
 		return <div>
-			index
+			
 		</div>
 	}
 }

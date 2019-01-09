@@ -1,0 +1,36 @@
+.categoryList {
+    width:100%;
+    position: absolute;
+    left:0rem;
+    bottom:-1.7rem;
+    background: #fff;
+
+    .menu {
+        width:21.44rem;
+        height:auto;
+        margin:0 auto;
+
+        ul,li {
+            list-style: none;
+            margin:0;
+            padding:0;
+        }
+
+        ul {
+            width:100%;
+            display: flex;
+            flex-direction: row;
+            padding:0.4rem 0;
+        }
+
+        li {
+            flex:1;
+            margin:0 0.2rem;
+
+            img {
+                width:100%;
+            }
+        }
+    }
+    
+}
