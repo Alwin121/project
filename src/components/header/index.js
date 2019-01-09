@@ -20,7 +20,7 @@ class Header extends Component{
 
 
       onhandleScroll(){
-          //console.log(document.documentElement.scrollTop)
+          console.log(document.documentElement.scrollTop)
           if(document.documentElement.scrollTop>0){
                 this.setState({
                     isShow:true
@@ -59,7 +59,7 @@ class Header extends Component{
                     <li><NavLink to="/silo/men" activeClassName="active" replace>男士</NavLink></li>
                     <li><NavLink to="/silo/cosmetics" activeClassName="active" replace>美妆</NavLink></li>
                     <li><NavLink to="/silo/lifestyle" activeClassName="active" replace>家居</NavLink></li>
-                    <li><NavLink to="/silo/kids" activeClassName="active" replace>婴童</NavLink></li>
+                    <li><NavLink to="/silo/kide" activeClassName="active" replace>婴童</NavLink></li>
                     <li><NavLink to="/upcoming" activeClassName="active" replace>即将上新</NavLink></li>
                 </ul>
             </div>
