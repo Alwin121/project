@@ -25,11 +25,12 @@ import brandwall from "../views/brandwall"
 import personalcenter from "../views/personalcenter"
 import shoppingcar from "../views/shoppingcar"
 import index2 from "../views/silo/index2"
-
+import {Provider} from "react-redux" //让每个容器组件拿到状态 
+import store from "../store"
 
 const router = (
 
-
+	<Provider store={store}>
 	<Router>
 		<App>
           <Switch>		  
@@ -70,7 +71,7 @@ const router = (
 			</Switch>
 		</App>
 	</Router>
-
+	</Provider>
 )
 
 export default router;
