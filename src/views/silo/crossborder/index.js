@@ -3,6 +3,7 @@ import { PullToRefresh, Button } from 'antd-mobile';
 import ReactDOM from "react-dom";
 import axios from 'axios'
 import './index.scss'
+import Footer from '../../../components/footer'
 class Demo extends React.Component {
 	constructor(props) {
 	  super(props);
@@ -90,8 +91,10 @@ class Demo extends React.Component {
 				<li className="crossborder_li4">{i.discountText}</li>
 			</ul>
 			</div>
-		  ))}
+			))}
+				<Footer></Footer>
 		</PullToRefresh>
+			
 	  </div>);
 	}
   }
