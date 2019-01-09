@@ -89,7 +89,7 @@ class Add extends React.Component {
 
         }}
       >
-				<Swiper></Swiper>
+				<Swiper {...this.props}></Swiper>
      			<Hitarea></Hitarea>
        <div id="ad">
         {
