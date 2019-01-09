@@ -12,7 +12,7 @@ class BannerImg extends Component {
 		}
 	}
 	render(){
-		return <div className="bannerImg">
+		return <div className="women_bannerImg">
 				<img src={this.state.bannerInfo.main_image} alt=""/>
 				<BannerInfo></BannerInfo>
 				<CategoryList></CategoryList>

@@ -10,7 +10,7 @@ class BannerInfo extends Component {
 		}
 	}
 	render(){
-		return <div className="bannerInfo">
+		return <div className="women_bannerInfo">
            <strong>{this.state.bannerInfo.main_title}</strong>
            <span>{this.state.bannerInfo.sub_title}</span>
            <span>{this.state.bannerInfo.description}</span>
