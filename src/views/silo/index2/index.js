@@ -2,6 +2,7 @@ import React,{Component} from "react"
 import "./index.scss"
 import axios from "axios"
 import Footer from "../../../components/footer" 
+import Header from "../../../components/header"
 class Index extends Component {
 	constructor(props) { 
 		super(props);
@@ -49,6 +50,7 @@ class Index extends Component {
 	render(){
 		//console.log(this);
 		return <div>
+			<Header/>
 			<div className="div_box">
 				<img src={this.state.banner.main_image} />
 				<p className="p_one">{this.state.banner.main_title}</p>
