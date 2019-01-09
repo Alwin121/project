@@ -68,9 +68,9 @@ class Personalcenter extends React.Component {
     </div>);
   }
   handleClick(id){
-      console.log(this.props)
+    //   console.log(this.props)
 
-    //  this.props.go(-1)
+     this.props.history.go(-1)
   }
 }
 export default Personalcenter

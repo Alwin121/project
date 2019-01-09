@@ -5,7 +5,7 @@ class Personalcenter extends Component {
 	render(){
 		// console.log(this);
 		return <div id="Personalcenter1">
-			<Header></Header>
+			<Header {...this.props}></Header>
 			<List></List>
 			
 		</div>
