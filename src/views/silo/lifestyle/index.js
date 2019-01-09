@@ -1,19 +1,27 @@
 import React,{Component} from "react"
-import {getSwiper} from "./model"
+
+import Swiper from "./swiper";
+import Hitarea from "./Hitarea";
+// import ListContainer from "./11";
+// import Ad from "./Ad";
+import Acc from "./3";
+// import Abb from "./22";
 
 class Lifestyle extends Component {
 	render(){
 		// console.log(this);
 		return <div>
+			<Swiper></Swiper>
+			<Hitarea></Hitarea>
+			{/* <Ad></Ad> */}
+			{/* <ListContainer></ListContainer> */}
+			{/* <Abb></Abb> */}
+			<Acc></Acc>
 			lifestyle
+
 		</div>
 	}//render
-	componentWillMount(){
-
-		getSwiper().then(res=>{
-			console.log(res)
-		})//then	
-	}//componentWillMount
+	
 }//Lifestyle
 
 export default Lifestyle

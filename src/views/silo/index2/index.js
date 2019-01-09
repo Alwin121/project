@@ -49,6 +49,7 @@ class Index extends Component {
 	render(){
 		//console.log(this);
 		return <div>
+<<<<<<< HEAD
 			<div className="div_box">
 				<img src={this.state.banner.main_image} />
 				<p className="p_one">{this.state.banner.main_title}</p>
@@ -74,6 +75,9 @@ class Index extends Component {
 					</div>
 					)
 			}
+=======
+			
+>>>>>>> fdd0f60060acaafb42febed8bc5620041e25d5cc
 		</div>
 		
 	}
