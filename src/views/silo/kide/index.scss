@@ -1,0 +1,69 @@
+$baseFontSize:16px;
+// pixels to rems 
+@function pxToRem($px) {
+      @return $px / $baseFontSize * 1rem;
+}
+html {
+    font-size: $baseFontSize;
+    -ms-touch-action: none;
+}
+
+.men_banner {
+    width:100%;
+
+    .men_bannerImg {
+        width: 100%;
+        position: relative;
+
+        img {
+            width:100%;
+            display: block;
+        }
+    }
+
+    .kid_bannerInfo {
+        width:100%;
+        position: absolute;
+        left:0;
+        bottom:pxToRem(60px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: #fff;
+        font-size: pxToRem(16px);
+
+        strong {
+            font-size:pxToRem(28px);
+            margin-bottom:pxToRem(7px);
+        }
+
+        .men_infoSub {
+            display: block;
+
+        }
+    }
+
+    .men_banner_list {
+        width:100%;
+        height:auto;
+        background: #fff;
+
+        .men_banner_list_Big {
+            width:100%;
+            height:auto;
+            display: flex;
+            list-style: none;
+
+            .men_banner_list_mes {
+                flex:1;
+                height:pxToRem(41px);
+                margin-right:5px;
+                height:auto;
+
+                img {
+                    width:100%;
+                }
+            }
+        }
+    }
+}
