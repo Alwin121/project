@@ -10,10 +10,11 @@ class Header extends Component{
             isShow:false,
             classN1:'login_div',
             classN2:'aaa',
-            navlist:[]
+           
+
         }
       }
-      componentDidMount(){
+      componentWillMount(){
         
         window.onscroll = this.onhandleScroll.bind(this) 
       }
@@ -60,7 +61,7 @@ class Header extends Component{
                     <li><NavLink to="/silo/cosmetics" activeClassName="active" replace>美妆</NavLink></li>
                     <li><NavLink to="/silo/lifestyle" activeClassName="active" replace>家居</NavLink></li>
                     <li><NavLink to="/silo/kide" activeClassName="active" replace>婴童</NavLink></li>
-                    <li><NavLink to="/upcoming" activeClassName="active" replace>即将上新</NavLink></li>
+                    <li><NavLink to="/upcoming" activeClassName="active " replace>即将上新</NavLink></li>
                 </ul>
             </div>
         </div>
