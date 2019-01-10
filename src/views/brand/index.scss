@@ -1,8 +1,11 @@
+.am-navbar-light,.am-navbar{
+    background-color:rgba(182,255,0,.5); 
+}
 
 #brand{
     background: #fff;
     position: relative;
-    div:nth-child(1) img{
+   img{
         width:100%;
         overflow: hidden;
        

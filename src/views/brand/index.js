@@ -1,13 +1,14 @@
 import React,{Component} from "react"
 import axios from 'axios'
 import "./index.scss"
+import Return from "../../components/return"
 import Null from "./null"
 import Seleced from "./selected";
 class Brand extends Component {
 	render(){
 		// console.log(this);
 		return <div id="brand">
-		
+		            <Return {...this.props}></Return>
 					<div className="pic">
 						<img src={this.state.datalist.brandPageImage} alt=""/>
 						<h1>{this.state.datalist.brandName}</h1>

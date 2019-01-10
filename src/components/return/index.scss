@@ -1,0 +1,28 @@
+#return{
+    .fanhui{
+        height: 50px;
+        width: 100%;
+        // background: #f60;
+        // opacity: 0;
+        position: fixed;
+        z-index: 1000;
+        ul{
+            display: flex;
+            list-style: none;
+            li{
+            //    flex: 1;
+               line-height: 50px;
+               font-size: 50px;
+               color: #fff;
+            }
+            .fanhui_2{
+                flex: 1
+                
+            }
+            .fanhui_1,.fanhui_3{
+                width: 50px;
+                // background: #ffff00;
+            }
+        }
+    }
+}
