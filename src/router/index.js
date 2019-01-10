@@ -17,6 +17,7 @@ import lifestyle from "../views/silo/lifestyle"
 import upcoming from "../views/upcoming"
 import Login from "../views/login"
 import mobile from "../views/login/mobile"
+import account from "../views/login/account"
 import welcome from "../views/welcome"
 import newmenbers from "../views/newmenbers"
 import brand from "../views/brand"
@@ -51,13 +52,14 @@ const router = (
 				</Silo>
 			}/>
 			<Route path="/upcoming" component={upcoming}/>
-			
-            <Route path="/login" render={()=>
-				<Login>
+			<Route path="/login" render={(res)=>{
+				console.log(res)
+			return <Login {...res}>
 				    <Switch>
 						<Route path="/login/mobile" component={mobile}/>
+						<Route path="/login/account" component={account}/>
 					</Switch>
-				</Login>
+				</Login>}
 			}/>
             <Route path="/welcome" component={welcome}/>
             <Route path="/newmenbers" component={newmenbers}/>
