@@ -33,8 +33,7 @@ const router = (
 	<Provider store={store}>
 	<Router>
 		<App>
-          <Switch>		  
-			<Route path="/brand" component={Brand}/>
+          <Switch>		  		
             <Route path="/silo" render={()=>
 				<Silo>
 				    <Switch>

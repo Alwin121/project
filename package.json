@@ -17,7 +17,8 @@
     "redux-promise": "^0.6.0",
     "redux-thunk": "^2.3.0",
     "sass-loader": "^7.1.0",
-    "swipe-js-iso": "^2.1.4"
+    "swipe-js-iso": "^2.1.4",
+    "swiper": "^4.4.6"
   },
   "scripts": {
     "start": "react-scripts start",

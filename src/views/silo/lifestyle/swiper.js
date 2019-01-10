@@ -69,12 +69,13 @@ class Swiper extends Component {
 		})//then	 
   }//componentWillMountimport 
   handleClick(id){
-    console.log(id);
-    console.log(this.props);
-    this.setState({
-      logoId:id.split('/')[4]
-    })
-    this.props.history.push(`/brand/${id.split('/')[4]}`);
+    // console.log(id);
+    // console.log(this.props);
+    // console.log(this.state.datalist)
+    id = id.split('/')[4]
+  
+    
+    this.props.history.push(`/brand/${id}`);
   }
 }
 
