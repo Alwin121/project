@@ -1,0 +1,15 @@
+#brand{
+    position: relative;
+    div:nth-child(1) img{
+        width:100%;
+        overflow: hidden;
+    }
+}
+#brand div:nth-child(1)::before{
+    content: "";
+    width: 100%;
+    background: #000;
+    height: 100%;
+    position: absolute;
+    opacity: .5;
+}

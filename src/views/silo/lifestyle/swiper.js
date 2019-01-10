@@ -74,7 +74,7 @@ class Swiper extends Component {
     this.setState({
       logoId:id.split('/')[4]
     })
-    this.props.history.push(`/brand/${id}`);
+    this.props.history.push(`/brand/${id.split('/')[4]}`);
   }
 }
 
