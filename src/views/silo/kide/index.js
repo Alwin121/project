@@ -4,6 +4,7 @@ import './index.scss'
 import Demo from './components/Demo'
 import ReactDOM from 'react-dom';
 import ReactSwipe from 'react-swipe';
+import Header from "../../../components/header"
 
 class Men extends Component {
 	constructor(props){
@@ -16,6 +17,7 @@ class Men extends Component {
 	}
 	render(){
 		return <div className="men">
+			<Header></Header>	
 			<div className="men_banner">
 				{
 					this.state.bannerInfo.length===0?null:

@@ -2,6 +2,7 @@ import React,{Component} from "react"
 import {getBanner,getList} from './model'
 import './index.scss'
 import Demo from './components/Demo'
+import Header from "../../../components/header"
 
 class Men extends Component {
 	constructor(props){
@@ -15,6 +16,7 @@ class Men extends Component {
 
 	render(){
 		return <div className="men">
+		    <Header></Header>
 			<div className="men_banner">
 				<div className="men_bannerImg">				
 					<img src={this.state.bannerInfo.main_image} alt=""/>	 

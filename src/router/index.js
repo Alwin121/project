@@ -52,7 +52,7 @@ const router = (
 			}/>
 			<Route path="/upcoming" component={upcoming}/>
 			<Route path="/login" render={(res)=>{
-				console.log(res)
+				//console.log(res)
 			return <Login {...res}>
 				    <Switch>
 						<Route path="/login/mobile" component={mobile}/>

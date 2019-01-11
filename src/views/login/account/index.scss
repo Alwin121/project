@@ -1,0 +1,114 @@
+$baseFontSize:16px;
+// pixels to rems 
+@function pxToRem($px) {
+      @return $px / $baseFontSize * 1rem;
+}
+html {
+    font-size: $baseFontSize;
+    -ms-touch-action: none;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    visibility: hidden;
+    height: 0;
+    line-height: 0;
+    font-size: 0;
+    clear: both;
+}
+
+.login_item {
+    width:100%;
+    background: #fff;
+    margin:0;
+    padding:0;
+
+    .curr_title {
+        width:305px;
+        margin:0 auto;
+        padding-top:50px;
+        height:60px;
+        font-size: 26px;
+        line-height: 60px;
+    }
+    .login_form {
+        width:100%;
+        margin: 0 auto;
+        padding-top: 95px;
+        padding-bottom: 100%;
+
+        .warn {
+            width:305px;
+            height:16px;
+            position: absolute;
+            left:0;
+            top:-19px;
+            color:red;
+            text-align: center;
+            
+        }
+
+        .input_box {
+            position: relative;
+            width:305px;
+            margin:0 auto 20px;
+            border:1px solid #eee;
+            box-shadow: 0 0.08rem 0.133333rem rgba(0,0,0,.15), 0 -0.013333rem 0.133333rem rgba(0,0,0,.05);
+            
+
+            input {
+                width:235px;
+                height:60px;
+                border:0;
+                display: block;
+                margin:0 auto;
+                              
+            }
+
+            .username {
+                border-bottom:1px solid #eee;
+            }
+        }
+
+        .action {
+            width:100%;
+            margin:0 auto;
+           
+
+            .submit {
+                position: relative;
+                width:305px;
+                margin:0 auto;
+
+                .default {
+                    width:305px;
+                    height:61px;
+                    background: #000;
+                    color:#fff;
+                    margin:0 auto;
+                    line-height: 61px;
+                    text-align: center;
+                    font-size: 16px;
+                }
+
+                .default:hover .shade {
+                    display: none;
+                }
+            }
+
+            .login_way {
+                width:305px;
+                margin:0 auto;
+                margin-top:10px;
+                text-align:right;
+
+                .red_text {
+                    color:red;
+                    text-decoration: none;
+                    margin:0 auto;
+                }
+            }
+        }
+    }
+}
