@@ -5,6 +5,7 @@ import ReactSwipe from 'react-swipe'
 import Drawer from './drawer'
 import store from '../../store'
 import './index.scss'
+import Bottom from './bottom'
 class Prodectdetail extends Component {
 	constructor(props) {
 		super(props);
@@ -66,18 +67,23 @@ class Prodectdetail extends Component {
 				<strong className="productdetail_strong">￥{this.state.pricedata.price}</strong>
 				<span className="productdetail_span">{this.state.pricedata.discount}折</span>
 				<span className="productdetail_span">买手推荐</span>
-				<p className="productdetail_p2"><i class="productdetail_icon iconfont icon-clock"></i>{this.state.data.deliver_date}</p>
+				<p className="productdetail_p2"><i className="productdetail_icon iconfont icon-clock"></i>{this.state.data.deliver_date}</p>
 				<div className="productdetail_sg"><span>闪购</span>距结束还有NaN小时</div>
 				<div className="productdetail_sg "><span>领券</span><span className="productdetail_red" >满999减150</span><span onClick={this.myclick1.bind(this)}  className='productdetail_node'></span></div>
 				<div className="productdetail_sg"><span>服务</span><span className='productdetail_node' ></span>{
-					this.state.data.service_labels.map(items=>
+					this.state.data.service_labels.map((items)=>
 						<span className='productdetail_server'>{items.label_title}</span>
 						)
 				}
+				<h2>产品详情</h2>
+				{this.state.data.description.product_img1.map((xqitem,index)=>
+					<img className='product_xqimg' key={index} src={xqitem.bigImgUrl}/>
+					)}
 				
 				</div>
 				<Drawer></Drawer>
 				{/* <Drawer isSHow={this.state.isShow?true:false}></Drawer> */}
+				<Bottom></Bottom>
 				</div>
 				:null
 			}

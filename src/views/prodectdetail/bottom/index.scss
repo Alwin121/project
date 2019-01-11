@@ -1,0 +1,22 @@
+.product_bottom_ul{
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    list-style: none;
+    background: #fff;
+    .product_bottom_li{
+        float: left;
+        flex:1;
+        font-size: 20px;
+        font-weight: 800;
+        line-height: 30px;
+        border-right: 1px solid #ccc;
+        text-align :center;
+    }
+    .product_bottom_icon{
+        font-size: 30px;
+
+
+    }
+}

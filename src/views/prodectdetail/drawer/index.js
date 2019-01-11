@@ -32,10 +32,10 @@ class App1 extends Component {
 			return (<List.Item key={index}
 				multipleLine
 				
-			><i class="iconfont icon-gifts"></i>点击优惠券</List.Item>);
+			><i className="iconfont icon-gifts"></i>点击优惠券</List.Item>);
 		  }
 		  return (<List.Item key={index} onClick={this.myclick.bind(this)}
-		  ><i class="productdetail_red iconfont icon-gifts"></i>{i}</List.Item>);
+		  ><i className="productdetail_red iconfont icon-gifts"></i>{i}</List.Item>);
 		})}
 	  </List>);
 		
@@ -43,7 +43,7 @@ class App1 extends Component {
 		{/* <NavBar icon={<Icon type="ellipsis" />} onLeftClick={this.onOpenChange}>Basic</NavBar> */}
 		<Drawer
 		  className="my-drawer"
-		  style={{ minHeight: document.documentElement.clientHeight }}
+		  style={{ minHeight: document.documentElement.clientHeight+document.documentElement.scrollTop}}
 		  position='bottom'
 			enableDragHandle
 			touch={false}
