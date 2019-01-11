@@ -8,10 +8,13 @@ class Women extends Component {
 	render(){
 		return <div className="women clearfix">
 			<Header></Header>
-			<BannerImg/>
+			<BannerImg {...this.props}/>
 			<Demo></Demo>
 			
 		</div>
+	}
+	componentDidMount(){
+		console.log(this.props)
 	}
 }
 

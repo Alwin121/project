@@ -35,8 +35,8 @@ const router = (
 	<Router>
 		<App>
           <Switch>		  		
-            <Route path="/silo" render={()=>
-				<Silo>
+            <Route path="/silo" render={(aaa)=>
+				<Silo {...aaa}>
 				    <Switch>
 						<Route path="/silo/women" component={women}/>
 						<Route path="/silo/index2" component={index2}/>

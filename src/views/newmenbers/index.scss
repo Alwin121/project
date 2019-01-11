@@ -1,0 +1,104 @@
+
+img{
+    width:100%;
+}
+.newmenbers_ul{
+    display: flex;
+    list-style: none;
+    height:50px;
+    line-height: 50px;
+    // background: pink;
+    li{
+        flex:1;
+        i{
+            color:rgb(247, 90, 90);
+        }
+        span{
+            color:rgb(247, 90, 90);
+            font-size:10px;
+        }
+    }
+}
+.newmenbers_div_box{
+    width:300px;
+    height:120px;
+    border:1px solid rgb(247, 237, 234);
+    border-left:1px dashed rgb(247, 237, 234); 
+    margin-left:10px;
+   background: #fff;
+    .newmenbers_div_inside{
+        position: relative;
+        width:278px;
+        height:98px;
+        margin:10px;
+        border:1px solid rgb(247, 237, 234);
+        border-radius: 5px;
+        .newmenbers_one{
+            width:100px;
+            text-align: center;
+            margin:30px 10px;
+            color:rgb(224, 20, 20);
+            font-size:30px;
+            font-weight: 600;
+        }
+        .newmenbers_two{
+            position: absolute;
+            width:150px;
+            text-align: left;
+            height:18px;
+            line-height: 18px;
+            top:20px;
+            right:0;
+            margin-top: -15px;
+            p{
+                font-size:14px;
+                font-weight: 600;
+                margin-top:5px;
+            }
+            p:nth-of-type(1){
+                width:35px;
+                text-align: center;
+                height:20px;
+                color: #fff;
+                background: rgb(224, 20, 20);
+            }
+            p:nth-of-type(4){
+                margin-top:3px;
+                font-weight: 100;
+                font-size:12px;
+            }
+        }
+    }
+
+    
+}
+.newmenbers_div_box_right{
+    width:43px;
+    height:120px;
+    float:right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(224, 20, 20);
+    margin-top:-120px;
+    margin-right:20px;
+    border-radius: 5px;
+    border-left:1px dashed #fff;
+    span{
+        width: 12px;
+        color: #fff;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 700;
+    }
+}
+.circle{
+    width:15px;
+    height:15px;
+    background: #000;
+    position: absolute;
+    right:11px;
+    top:316px;
+    border-radius: 50%;
+    background: rgb(240, 239, 239);
+}

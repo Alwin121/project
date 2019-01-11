@@ -3,6 +3,7 @@ import "./index.scss"
 import axios from "axios"
 import Footer from "../../../components/footer" 
 import Header from "../../../components/header"
+import {NavLink} from "react-router-dom"
 class Index extends Component {
 	constructor(props) { 
 		super(props);
@@ -52,12 +53,14 @@ class Index extends Component {
 		return <div>
 			<Header/>
 			<div className="div_box">
-				<img src={this.state.banner.main_image} />
+				<img src={this.state.banner.main_image}/>
 				<p className="p_one">{this.state.banner.main_title}</p>
 				<p className="p_two">{this.state.banner.sub_title}</p>
 			</div>
 			<div className="div_cneter">
-				<img src={this.state.pic.img}/>
+				<ul>
+				<li><NavLink to="/newmenbers" ><img src={this.state.pic.img}/></NavLink></li>
+				</ul>
 			</div>
 			{
 				this.state.datalist.map(item=>
