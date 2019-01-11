@@ -54,7 +54,8 @@ class Brand extends Component {
 			datalist:[],
 			isMove:true,
 			looplist:[],
-			id:[]
+			id:[],
+			isShow:false
 			
 		}
 	}
