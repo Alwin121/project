@@ -3,6 +3,7 @@ import './index.scss'
 import axios from 'axios'
 import {connect} from "react-redux"
 import Footer from "../../components/footer"
+import Header from '../../components/header'
 class Upcoming extends Component {
 
 	componentDidMount(){
@@ -19,6 +20,7 @@ class Upcoming extends Component {
 	}
 	render(){
 		return <div className="upcoming_div">
+			<Header></Header>
 			<h1>距离开场还NaN个小时</h1>
 			<p className="upcoming_p">订阅您喜欢的品牌，我们将在活动当天提醒您！</p>
 			{
