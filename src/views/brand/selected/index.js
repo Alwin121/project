@@ -3,7 +3,7 @@ import "./index.scss"
 
 import Swiper from "swiper"
 import "swiper/dist/css/swiper.min.css"
-
+import Headerbar from "../header";
 class Seleced extends Component {
 	render(){
 		//t console.log(this);
@@ -23,18 +23,21 @@ class Seleced extends Component {
 						<img src={item.fileUrl} alt=""/>
 						<p>￥{item.price}<s><span>￥{item.marketPrice}</span></s></p>
 					</div>
+                   
 					 
 					</div>
 					)
+					
 			}
 		</div>
-		</div>:
+		</div>
+	
+		:
 		null
 
 		}
 
-
-
+<Headerbar id={this.props.id}></Headerbar>
 		 
 		</div>
 	}
@@ -47,6 +50,7 @@ class Seleced extends Component {
 	}
 	componentDidMount(){
 		console.log(this.props.selece)
+		// console.log(this.props.id,11001010010100101)
 		this.setState({
 			datalist:this.props.selece,
 			
