@@ -18,8 +18,12 @@ class Prodectdetail extends Component {
 	  }
 	componentDidMount(){
 		axios({
-			url:"http://www.mei.com/appapi/product/detail/v3?categoryId=2041204190000005269&productId=2042204299000798741&userId=2022202299900101332&platform_code=H5&timestamp=1547085993959&summary=8cf0839f241fbeaba8467685ee0ae589"
+			url:`http://www.mei.com/appapi/product/detail/v3?categoryId=2041204190000005269&productId=${this.props.match.params.id}&userId=2022202299900101332&platform_code=H5&timestamp=1547085993959&summary=8cf0839f241fbeaba8467685ee0ae589`
 		}).then(res=>{
+			store.dispatch({
+				type:"name",
+				payload:res.data.infos.brand
+			})
 			console.log(res.data.infos)
 			this.setState({
 				imgArr:res.data.infos.images,
@@ -27,9 +31,10 @@ class Prodectdetail extends Component {
 			})
 		})
 		axios({
-			url:'http://www.mei.com/appapi/product/getProductPrice/v3?productId=2042204299000798741&userLevel=2&type=0'
+			url:`http://www.mei.com/appapi/product/getProductPrice/v3?productId=${this.props.match.params.id}&userLevel=2&type=0`
 
 		}).then(res=>{
+			
 			console.log(res.data.retDto)
 			this.setState({
 				pricedata:res.data.retDto

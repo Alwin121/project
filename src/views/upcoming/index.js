@@ -25,7 +25,7 @@ class Upcoming extends Component {
 			<p className="upcoming_p">订阅您喜欢的品牌，我们将在活动当天提醒您！</p>
 			{
 				this.props.lys.map(item=><div key={item.categoryId} >
-					<img src={item.imagePcUrl}/>
+					<img onClick={this.luyou.bind(this,item)} src={item.imagePcUrl}/>
 					<ul className="upcoming_ul">
 						<li className="upcoming_li">{item.englishName}</li>
 						<li className="upcoming_li">{item.chineseName}</li>
@@ -36,6 +36,9 @@ class Upcoming extends Component {
 			}
 			<Footer></Footer>
 		</div>
+	}
+	luyou(item){
+		this.props.history.push(`/productlist/${item.categoryId}`)
 	}
 }
 
