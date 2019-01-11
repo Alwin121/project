@@ -62,7 +62,7 @@ const router = (
 			}/>
             <Route path="/welcome" component={welcome}/>
             <Route path="/newmenbers" component={newmenbers}/>
-			<Route path="/prodectdetail" component={prodectdetail}/>
+			<Route path="/prodectdetail/:id" component={prodectdetail}/>
 			<Route path="/brand/:id" component={brand} exact/>
 			<Route path="/productlist/:id" component={productlist} exact/>
 			<Route path="/brandwall" component={brandwall}/>

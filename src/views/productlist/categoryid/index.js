@@ -7,7 +7,7 @@ class Categoryid extends Component {
 		
 	{
 		this.state.datalist.map(item=>
-		<ul className="categoryid_ul">
+		<ul className="categoryid_ul" onClick={this.handleClick.bind(this,item.productId)}>
 			{/* <li><img src={item.ileUrl} alt=""/> </li> */}
 			<li className="Categoryid_li"><img src={item.imageUrl} alt=""/></li>
 		
@@ -39,6 +39,9 @@ class Categoryid extends Component {
 	})	
 	
   }//componentWillMountimport 
+  handleClick(id){
+	this.props.history.push(`/productdetai/${id}`);
+  }
 }
 
 export default Categoryid
