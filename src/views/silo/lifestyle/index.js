@@ -78,7 +78,7 @@ class Add extends React.Component {
                 url:`http://www.mei.com/appapi/silo/eventForH5?categoryId=lifestyle&pageIndex=${this.state.num}&timestamp=1546944734379&summary=c885aaa8145c3653d841fe3b0fced752&platform_code=H5`,
                 
             }).then(res=>{
-                // console.log(res.data.eventList,39999999);
+                console.log(res.data,399999996666666666666666);
                 this.setState({ refreshing: false,
                 datalist:[...this.state.datalist,...res.data.eventList],
 				num:this.state.num+1
@@ -94,7 +94,7 @@ class Add extends React.Component {
        <div id="ad">
         {
             this.state.datalist.map(item=>
-            <ul key={item.categoryId}>
+            <ul key={item.categoryId} onClick={this.handleClick.bind(this,item.categoryId)}>
                 <li>
                     <p>{item.englishName}</p>
                     <p>{item.chineseName}</p>
@@ -126,6 +126,9 @@ class Add extends React.Component {
 		</div>
       </PullToRefresh>
     </div>);
+  }
+  handleClick(id){
+    this.props.history.push(`/productlist/${id}`);
   }
 }
 export default Add  

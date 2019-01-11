@@ -12,11 +12,18 @@ class BannerImg extends Component {
 		}
 	}
 	render(){
-		return <div className="women_bannerImg">
+		return <div className="women_bannerImg" onClick={this.handleClick.bind(this,this.state.bannerInfo.link_url)}>
 				<img src={this.state.bannerInfo.main_image} alt=""/>
 				<BannerInfo></BannerInfo>
 				<CategoryList></CategoryList>
 		</div>
+	}
+	handleClick(id) {
+		console.log(id)
+		id = id.split('/')[4]
+		console.log(id)
+		console.log(this.props)
+		this.props.history.push(`/brand/${id}`)
 	}
 
 	componentDidMount(){

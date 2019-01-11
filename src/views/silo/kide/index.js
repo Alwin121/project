@@ -5,6 +5,7 @@ import Demo from './components/Demo'
 import ReactDOM from 'react-dom';
 import ReactSwipe from 'react-swipe';
 import Header from "../../../components/header"
+import {NavLink} from 'react-router-dom'
 
 class Men extends Component {
 	constructor(props){
@@ -28,7 +29,7 @@ class Men extends Component {
 						{
 							this.state.bannerInfo.map((item)=>
 								<div key={item.id}>
-									<div className="men_bannerImg">
+									<div className="men_bannerImg" onClick={this.handleClick.bind(this,item.link_url)}>
 										<img src={item.main_image} alt=""/>
 									</div>
 									<div className="kid_bannerInfo">
@@ -62,6 +63,13 @@ class Men extends Component {
 			</div>
 			<Demo></Demo>
 		</div>
+	}
+
+	handleClick(id) {
+		console.log(id)
+		id = id.split('/')[4]
+		console.log(id)
+		this.props.history.push(`/brand/${id}`)
 	}
 
 	componentDidMount(){

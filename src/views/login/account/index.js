@@ -16,7 +16,7 @@ class Mobile extends Component {
 			<div className="login_form clearfix">
 				<div className="input_box">
 			    	<div className="warn" ref="userwarn"></div>
-					<input type="text" name="usename" placeholder="手机号/邮箱" ref="username" className="username" onBlur={this.handleChange.bind(this)}/>
+					<input type="text" name="usename" placeholder="手机号/邮箱" ref="username" className="username"/>
 					<input type="password" name="password" placeholder="密码" ref="password" className="password" />
 				</div>
 
@@ -32,31 +32,6 @@ class Mobile extends Component {
 			
 		</div>
 	}	
-
-	handleChange(){
-		axios({
-			url:`/users/checkUser`,
-			method:'post',
-			data:{
-				username:this.refs.username.value
-			}
-		}).then(res=>{
-			if(res.data.ok === 0) {
-
-				this.refs.userwarn.innerHTML = '---用户未注册---'
-				this.setState({
-					isRegClick:false
-				})
-			} else {
-				console.log('----用户名可登陆')
-				this.refs.userwarn.innerHTML = ''
-				this.setState({
-					isRegClick:true
-				})
-			}
-		})
-	
-	}
 
 	handleSubClick(){
 		axios({

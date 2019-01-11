@@ -22,6 +22,7 @@ class Headerbar extends Component {
         
             {this.state.looplist.length?<Categoryid name={this.state.looplist}></Categoryid>:null}
             {/* // <Categoryid name={this.state.looplist}></Categoryid> */}
+       
 		</div>
     }
     constructor(props){
@@ -36,12 +37,13 @@ class Headerbar extends Component {
     componentWillMount(){
 
 		getheaderbar(this.props.id).then(res=>{
-
+          
 // console.log(res.body.categoryProducts,90909090909)
       this.setState({
         datalist:res.body.categories,
         looplist:res.body.categoryProducts
         // logoId:this.state.datalist.splice()
+       
       })
         })//then	 
         window.onscroll=this.handeleScroll.bind(this)

@@ -18,7 +18,7 @@ class Men extends Component {
 		return <div className="men">
 		    <Header></Header>
 			<div className="men_banner">
-				<div className="men_bannerImg">				
+				<div className="men_bannerImg" onClick={this.handleClick.bind(this,this.state.bannerInfo.link_url)}>				
 					<img src={this.state.bannerInfo.main_image} alt=""/>	 
 				</div>
 				<div className="men_bannerInfo">
@@ -39,6 +39,13 @@ class Men extends Component {
 			</div>
 			<Demo></Demo>
 		</div>
+	}
+
+	handleClick(id) {
+		console.log(id)
+		id = id.split('/')[4]
+		console.log(id)
+		this.props.history.push(`/brand/${id}`)
 	}
 
 	componentDidMount(){

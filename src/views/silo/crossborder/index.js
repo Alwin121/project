@@ -21,7 +21,7 @@ class Demo extends React.Component {
 	axios({
 		url:'http://www.mei.com/appapi/home/mktBannerApp/v3?silo_id=2013000100000000008&platform_code=PLATEFORM_H5&credential=rO0ABXNyACdjb20ucmF5b28uY29tbW9uLnBvam8uVXNlckNyZWRlbnRpYWxzVm8AAAAAAAAAAQIAA0wACHBhc3N3b3JkdAASTGphdmEvbGFuZy9TdHJpbmc7TAAJdXNlckVtYWlscQB%2BAAFMAAZ1c2VySWRxAH4AAXhwdABAZmU4ZjFkY2E2OTI3NDI1ZWM0Mzc5NzE4NDRjNmIwNjQ4ZGFkODMzNWYwODI2ZDYzMDgzYWZiZGI0ZWZhM2Q3YnQACzE4MjMzNzE4NzIzdAATMjAyMjIwMjI5OTkwMDEwMTMzMg%3D%3D'
 	}).then(res=>{
-		console.log(res.data.banners[0].main_image,111)
+		// console.log(res.data.banners[0].main_image,111)
 		this.setState({
 			banners:res.data.banners[0].main_image
 		})
@@ -83,7 +83,7 @@ class Demo extends React.Component {
 		<img className="crossborder_bigimg" src={this.state.banners}/>
 		  {this.state.data.map(i => (
 			<div className="crossborder_div" key={i.categoryId}>
-			<img className="crossborder_img"  src={i.imageUrl} style={{ textAlign: 'center', padding: 20 }}/>
+			<img onClick={this.rout.bind(this,i)} className="crossborder_img"  src={i.imageUrl} style={{ textAlign: 'center', padding: 20 }}/>
 			<ul className="crossborder_ul">
 				<li className="crossborder_li1">海外直发</li>
 				<li className="crossborder_li2">{i.englishName}</li>
@@ -96,6 +96,9 @@ class Demo extends React.Component {
 		</PullToRefresh>
 			
 	  </div>);
+	}
+	rout(i){
+			this.props.history.push(`/productlist/${i.categoryId}`)
 	}
   }
 
