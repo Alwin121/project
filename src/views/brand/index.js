@@ -33,7 +33,7 @@ class Brand extends Component {
 								<div className="neirong">
 									{
 										this.state.looplist.length?
-										<Seleced selece={this.state.looplist} id={this.state.id}></Seleced>
+										<Seleced {...this.props} selece={this.state.looplist} id={this.state.id}></Seleced>
 										:
 										<Null></Null>
 									}
@@ -65,8 +65,8 @@ class Brand extends Component {
 			url:`http://www.mei.com/appapi/brand/product/hotNew/v3?logoId=${this.props.match.params.id}`
 					
 				}).then(res=>{
-					console.log(res.data.body.newProductTop10,999922222222222222222222)
-					console.log(this.props.match.params.id,555555555555555)
+					// console.log(res.data.body.newProductTop10,999922222222222222222222)
+					// console.log(this.props.match.params.id,555555555555555)
 					this.setState({
 						datalist:res.data.body.brandDetail,
 						looplist:res.data.body.newProductTop10,

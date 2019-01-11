@@ -20,7 +20,8 @@ class Seleced extends Component {
 				this.state.datalist.map(item=>
 					<div className="swiper-slide" key={item.eventId}>
 					<div className="file">
-						<img src={item.fileUrl} alt=""/>
+						<img src={item.fileUrl} alt="" onClick={this.handlelist.bind(this,item.productId
+						)}/>
 						<p>￥{item.price}<s><span>￥{item.marketPrice}</span></s></p>
 					</div>
                    
@@ -37,7 +38,7 @@ class Seleced extends Component {
 
 		}
 
-<Headerbar id={this.props.id}></Headerbar>
+<Headerbar id={this.props.id} {...this.props}></Headerbar>
 		 
 		</div>
 	}
@@ -49,7 +50,7 @@ class Seleced extends Component {
 		}
 	}
 	componentDidMount(){
-		console.log(this.props.selece)
+		// console.log(this.props.selece,7777777777777777)
 		// console.log(this.props.id,11001010010100101)
 		this.setState({
 			datalist:this.props.selece,
@@ -66,7 +67,10 @@ class Seleced extends Component {
 		})
 
 	}
-	
+	handlelist(id){
+		// console.log("hahha")
+		this.props.history.push(`/prodectdetail/${id}`);
+	}
 }
 
 export default Seleced
