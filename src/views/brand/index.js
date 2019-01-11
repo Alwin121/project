@@ -4,6 +4,7 @@ import "./index.scss"
 import Return from "../../components/return"
 import Null from "./null"
 import Seleced from "./selected";
+import Headerbar from "./header";
 class Brand extends Component {
 	render(){
 		// console.log(this);
@@ -31,12 +32,12 @@ class Brand extends Component {
 										</div>
 								<div>
 									{
-										this.state.isTure.length?
+										this.state.looplist.length?
 										<Seleced selece={this.state.looplist}></Seleced>
 										:
 										<Null></Null>
 									}
-									
+									<Headerbar></Headerbar>
 								</div>
 							</div>
 
@@ -52,8 +53,7 @@ class Brand extends Component {
 		this.state = {
 			datalist:[],
 			isMove:true,
-			looplist:[],
-			isTure:[]
+			looplist:[]
 			
 		}
 	}
@@ -64,15 +64,15 @@ class Brand extends Component {
 			url:`http://www.mei.com/appapi/brand/product/hotNew/v3?logoId=${this.props.match.params.id}`
 					
 				}).then(res=>{
-					console.log(res.data.body.newProductTop10,9999990);
+					// console.log(res.data.body.newProductTop10,9999990);
 					this.setState({
 						datalist:res.data.body.brandDetail,
-						looplist:res.data.body,
-						isTure:res.data.body.newProductTop10
+						looplist:res.data.body.newProductTop10,
+
 
 					})
 					
-				console.log(this.state.looplist)
+				// console.log(this.state.looplist)
 			})
   }//componentWillMountimport 
   handleClick(){

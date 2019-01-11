@@ -3,7 +3,7 @@ import "./index.scss"
 
 import Swiper from "swiper"
 import "swiper/dist/css/swiper.min.css"
-import { Item } from "antd-mobile/lib/tab-bar";
+
 class Seleced extends Component {
 	render(){
 		//t console.log(this);
@@ -42,15 +42,14 @@ class Seleced extends Component {
 		super(props)
 		this.state = {
 			datalist:[],
-			looplist:[],
-			alllist:[]
+			looplist:[]
 		}
 	}
 	componentDidMount(){
+		console.log(this.props.selece)
 		this.setState({
-			datalist:this.props.selece.newProductTop10,
-			looplist:this.props.selece.hotProductTop10,
-			alllist:[...this.state.datalist,...this.state.looplist]
+			datalist:this.props.selece,
+			
 		},function(){
 			var mySwiper  = new Swiper('.a', {
 				slidesPerView: 3,
@@ -61,8 +60,7 @@ class Seleced extends Component {
 				},
 			  });
 		})
-		console.log(90909090,this.state.alllist,this.state.looplist)
-		
+
 	}
 	
 }
