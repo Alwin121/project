@@ -41,7 +41,7 @@ class Categoryid extends Component {
   }//componentWillMountimport 
   handleClick(id){
 	  console.log(this.props,35355353535535535353553535)
-	this.props.history.push(`/productdetai/${id}`);
+	this.props.history.push(`/prodectdetail/${id}`);
   }
 }
 
