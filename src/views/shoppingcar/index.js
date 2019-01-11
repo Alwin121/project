@@ -11,7 +11,6 @@ class Shoppingcar extends Component {
 		this.state = {
 			datalist:[],
 			allChecked:false,
-			check:[],
 			shoppingcarlist:[
 				{	
 					id:1,
@@ -40,7 +39,6 @@ class Shoppingcar extends Component {
 			url:"http://www.mei.com/appapi/product/maybeLike/v3?pageIndex=1"
 		}).then(res=>{
 			// console.log(res.data.products)
-			
 			this.setState({
 				datalist:res.data.products
 				
@@ -65,7 +63,7 @@ class Shoppingcar extends Component {
 											<p>
 												<button onClick={this.handleAddClick.bind(this,index)}>+</button>
 												<span>{list.number}</span>
-												<button>-</button>
+												<button onClick={this.handleSubClick.bind(this,index)}>-</button>
 											</p>
 											<p>{list.description}</p>
 											<p>{list.price}</p>
@@ -109,48 +107,30 @@ class Shoppingcar extends Component {
 		this.setState({
 			shoppingcarlist:list
 		})
-		// console.log(this.refs.sss1.innerHTML)
-		// var aaa = parseInt(this.refs.sss1.innerHTML)
-		// console.log(aaa,222)
-		// this.refs.sss1.innerHTML=aaa+1
-		// this.setState({
-		// 	shoppingcarlist.number:aaa
-		// })
+
 		
 	}
-
-	// onAllClick(){
-	// 	this.setState({
-	// 		allChecked:!this.state.allChecked
-	// 	})
-	// }
-	handleClick(index){
-		
-		if(this.state.check.length === this.state.shoppingcarlist.length){
-			this.setState({
-				allChecked:true
-			})
-			// console.log(this.state.allChecked)
-		}else{
-			this.setState({
-				allChecked:false
-			})
-			console.log(this.state.allChecked)
-		}
-	
+	handleSubClick(index){
+		var list2 = [...this.state.shoppingcarlist]
+		list2[index].number--
+		this.setState({
+			shoppingcarlist:list2
+		}) 
 	}
 
 	onAllClick(){
-		if(this.state.allChecked === true){
-			this.setState({
-				check:this.state.shoppingcarlist
-			})
-		}else{
-			this.setState({
-				check:[]
-			})
-		}
+		
+		this.setState({
+			allChecked:!this.state.allChecked
+		})
 	}
+
+	handleClick(index){
+		
+	
+	}
+
+
 
 	handleDelClick(index){
 	
