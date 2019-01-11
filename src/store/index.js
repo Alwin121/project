@@ -1,5 +1,6 @@
 import {createStore,combineReducers} from "redux"
 import upComingReducer from './upcomingReducer'
+import titleReducer from './Title'
 import thunk from "redux-thunk"
 import promiseThunk from "redux-promise"
 import {applyMiddleware} from "redux"
@@ -16,7 +17,8 @@ const DrawerReducer = (prevstate=false,action)=>{
 }
 const reducer = combineReducers({
     upComingReducer,
-    DrawerReducer
+	DrawerReducer,
+	titleReducer
 })
 const store = createStore(reducer,applyMiddleware(thunk,promiseThunk));
 export default store;

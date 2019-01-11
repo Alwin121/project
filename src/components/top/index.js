@@ -1,6 +1,7 @@
 import React from "react"
 import "./index.scss"
 import { Popover, NavBar, Icon } from 'antd-mobile';
+import store from "../../store";
 // import router from "react-dom"
 
 const Item = Popover.Item;
@@ -10,6 +11,7 @@ class Top extends React.Component {
   state = {
     visible: false,
     selected: '',
+    name:[]
   };
   onSelect = (opt) => {
     console.log(opt.props.value);
@@ -73,7 +75,7 @@ class Top extends React.Component {
         }
       >
 	  
-        个人中心
+        <p className="Top_name">{this.state.name}</p>
 
       </NavBar>
     </div>);
@@ -83,6 +85,14 @@ class Top extends React.Component {
 
      this.props.history.go(-1)
   }
-
+componentDidMount(){
+  store.subscribe(()=>{
+    console.log(store.getState().titleReducer,444444444444444)
+    this.setState({
+      name:store.getState().titleReducer
+    })
+    
+  })
+}
 }
 export default Top
