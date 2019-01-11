@@ -21,7 +21,7 @@ class Header extends Component{
 
 
       onhandleScroll(){
-          console.log(document.documentElement.scrollTop)
+          //console.log(document.documentElement.scrollTop)
           if(document.documentElement.scrollTop>0){
                 this.setState({
                     isShow:true
