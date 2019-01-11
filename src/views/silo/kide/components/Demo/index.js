@@ -70,7 +70,7 @@ class Demo extends React.Component {
       >
         {this.state.datalist.map(i => (
           <div style={{ textAlign: 'center', padding: 10 ,margin:4}} key={i.eventId}>
-            <div className="contain_box" > 
+            <div className="contain_box" onClick={this.handleListClick.bind(this,i.categoryId)}> 
               <div className="imglist">
                 <img src={i.imageUrl} alt=""/>
                 <div className="shade"></div>
@@ -85,6 +85,11 @@ class Demo extends React.Component {
         ))}
       </PullToRefresh>
     </div>);
+  }
+
+  handleListClick(id){
+    console.log(id)
+    this.props.history.push(`/productlist/${id}`)
   }
 }
 

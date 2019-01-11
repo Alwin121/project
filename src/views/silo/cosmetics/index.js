@@ -16,7 +16,7 @@ class Men extends Component {
 	render(){
 		return <div className="men">
 			<div className="men_banner">
-				<div className="men_bannerImg">				
+				<div className="men_bannerImg" >				
 					<img src={this.state.bannerInfo.main_image} alt=""/>	 
 				</div>
 				<div className="men_bannerInfo">
@@ -35,9 +35,17 @@ class Men extends Component {
 				</div>
 				
 			</div>
-			<Demo></Demo>
+			<Demo {...this.props}></Demo>
 		</div>
 	}
+
+	// handleClick(id) {
+	// 	console.log(id)
+	// 	id = id.split('/')[4]
+	// 	console.log(id)
+	// 	console.log(this.props)
+	// 	this.props.history.push(`/brand/${id}`)
+	// }
 
 	componentDidMount(){
 		getBanner().then(res=>{

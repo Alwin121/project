@@ -61,7 +61,7 @@ class Men extends Component {
 				</div>
 				
 			</div>
-			<Demo></Demo>
+			<Demo {...this.props}></Demo>
 		</div>
 	}
 

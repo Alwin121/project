@@ -9,7 +9,7 @@ class Women extends Component {
 		return <div className="women clearfix">
 			<Header></Header>
 			<BannerImg {...this.props}/>
-			<Demo></Demo>
+			<Demo {...this.props}></Demo>
 			
 		</div>
 	}
