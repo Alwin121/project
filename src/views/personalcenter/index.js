@@ -6,7 +6,7 @@ class Personalcenter extends Component {
 		// console.log(this);
 		return <div id="Personalcenter1">
 			<Headers {...this.props}></Headers>
-			<List></List>
+			<List {...this.props}></List>
 			
 		</div>
 	}

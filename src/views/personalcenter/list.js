@@ -14,7 +14,7 @@ class List extends Component {
                                    <img src="#" alt=""/>
                                 </div> 
                                <div>
-                                    <h1>1111</h1>
+                                    <h1>{this.props.match.params.id}</h1>
                                     <p>查看并编辑个人内容</p>
                                </div> 
                             
@@ -54,7 +54,7 @@ class List extends Component {
     //         url:"/users/checkUser",
     //         method:"post",
     //         data: {
-    //             username:
+    //             username:""
     //           }
 			
 	// 	}).then(res=>{

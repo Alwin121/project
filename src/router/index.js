@@ -66,7 +66,7 @@ const router = (
 			<Route path="/brand/:id" component={brand} exact/>
 			<Route path="/productlist/:id" component={productlist} exact/>
 			<Route path="/brandwall" component={brandwall}/>
-			<Route path="/personalcenter" component={personalcenter}/>
+			<Route path="/personalcenter/:id" component={personalcenter}/>
 			<Route path="/shoppingcar" component={shoppingcar}/>
 			<Redirect from="*" to="/silo"/>
 			</Switch>
