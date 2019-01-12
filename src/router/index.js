@@ -16,7 +16,7 @@ import kide from "../views/silo/kide"
 import lifestyle from "../views/silo/lifestyle"
 import upcoming from "../views/upcoming"
 import Login from "../views/login"
-import mobile from "../views/login/mobile"
+import Mobile from "../views/login/mobile"
 import account from "../views/login/account"
 import welcome from "../views/welcome"
 import newmenbers from "../views/newmenbers"
@@ -65,7 +65,7 @@ const router = (
 				//console.log(res)
 			return <Login {...res}>
 				    <Switch>
-						<Route path="/login/mobile" render={()=>checkLogin()?<Redirect to = "/login/account"/>:<Redirect to = "/Personalcenter"/>}/>
+						<Route path="/login/mobile" render={(aaa)=>checkLogin()?<Mobile {...aaa}/>:<Redirect to = "/Personalcenter"/>}/>
 
 						<Route path="/login/account" component={account}/>
 					</Switch>
