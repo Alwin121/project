@@ -40,7 +40,7 @@ class Bottom extends Component {
 					imgpath:this.state.data.images[0].smallImgUrl
 				}
 			}).then(res=>{
-				console.log(res)
+				alert('添加成功')
 			})
 		}else{
 			this.props.history.push('/login/account')
