@@ -4,8 +4,20 @@ import axios from 'axios'
 import {connect} from "react-redux"
 import Footer from "../../components/footer"
 import Header from '../../components/header'
+import store from '../../store'
 class Upcoming extends Component {
-
+	componentWillMount(){
+		store.dispatch({
+			type:'showbar',
+			payload:true
+		})
+	}
+	componentWillUnmount(){
+		store.dispatch({
+			type:'hidebar',
+			payload:false
+		})
+	}
 	componentDidMount(){
 		// axios({
 		// 	url:'http://www.mei.com/appapi/upcoming/index/v3?userId=2022202299900101332&platform_code=H5&timestamp=1547001479322&summary=a140bdfe3b4d46634033627f1d008d26'

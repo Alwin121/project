@@ -15,10 +15,22 @@ const DrawerReducer = (prevstate=false,action)=>{
 			return prevstate
 	}
 }
+const barReducer = (prevstate=false,action)=>{
+	let {type,payload}= action;
+	switch(type){
+		case "showbar":
+            return payload;
+        case "hidebar":
+            return payload;
+		default:
+			return prevstate
+	}
+}
 const reducer = combineReducers({
     upComingReducer,
 	DrawerReducer,
-	titleReducer
+	titleReducer,
+	barReducer
 })
 const store = createStore(reducer,applyMiddleware(thunk,promiseThunk));
 export default store;

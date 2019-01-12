@@ -1,8 +1,8 @@
 import React,{Component} from "react";
 import "./index.scss";
 import {NavLink} from "react-router-dom"
-import axios from "axios"
-
+// import axios from "axios"
+import store from '../../store'
 class Header extends Component{
     constructor(props) {
         super(props);
@@ -15,7 +15,12 @@ class Header extends Component{
         }
       }
       componentWillMount(){
-        
+          console.log(store.getState().barReducer)
+        store.subscribe(()=>{
+            this.setState({
+                isShow:store.getState().barReducer
+            })
+        })
         window.onscroll = this.onhandleScroll.bind(this) 
       }
 
