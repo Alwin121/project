@@ -1,7 +1,7 @@
 import React,{Component} from "react"
 import axios from "axios"
 import "./index.scss"
-
+import Top from "../../components/top"
 class Newmenbers extends Component {
 	constructor(props){
 		super(props)
@@ -33,6 +33,7 @@ class Newmenbers extends Component {
 	render(){
 		
 		return <div>
+			<Top {...this.props}/>
 			<img src={this.state.picture.imgUrl} />
 			<ul className="newmenbers_ul">
 				<li>
