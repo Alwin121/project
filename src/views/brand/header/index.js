@@ -20,7 +20,7 @@ class Headerbar extends Component {
 
         </div>
         
-            {this.state.looplist.length?<Categoryid name={this.state.looplist}></Categoryid>:null}
+            {this.state.looplist.length?<Categoryid name={this.state.looplist} {...this.props}></Categoryid>:null}
             {/* // <Categoryid name={this.state.looplist}></Categoryid> */}
        
 		</div>
@@ -46,31 +46,31 @@ class Headerbar extends Component {
        
       })
         })//then	 
-        window.onscroll=this.handeleScroll.bind(this)
+        // window.onscroll=this.handeleScroll.bind(this)
   }//componentWillMountimport 
   
 
-handeleScroll(){
-    var a = document.documentElement.scrollTop?document.documentElement.scrollTop:document.body.scrollTop
-    // console.log(a,99)
-    var b = document.querySelector("#headerbar")
-    var c = document.querySelector(".pic")
-    var d = document.querySelector(".text")
-    var e = document.querySelector(".bg")
-    var f = c.offsetHeight+d.offsetHeight+e.offsetHeight
-    var g = f-100
-    // console.log(a,f,g,5656)
-    if(a>=g){
-       this.setState({
-           isShow:true  
-       })
+// handeleScroll(){
+//     var a = document.documentElement.scrollTop?document.documentElement.scrollTop:document.body.scrollTop
+//     // console.log(a,99)
+//     var b = document.querySelector("#headerbar")
+//     var c = document.querySelector(".pic")
+//     var d = document.querySelector(".text")
+//     var e = document.querySelector(".bg")
+//     var f = c.offsetHeight+d.offsetHeight+e.offsetHeight
+//     var g = f-100
+//     // console.log(a,f,g,5656)
+//     if(a>=g){
+//        this.setState({
+//            isShow:true  
+//        })
        
-    }else{
-        this.setState({
-            isShow:false
-        })
-    }
-}
+//     }else{
+//         this.setState({
+//             isShow:false
+//         })
+//     }
+// }
     
 }
 

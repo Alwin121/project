@@ -51,12 +51,10 @@ class List extends Component {
     }
     // componentDidMount(){
     //     axios({
-    //         url:"http://www.mei.com/appapi/myaccount/indexForH5",
+    //         url:"/users/checkUser",
+    //         method:"post",
     //         data: {
-    //             credential: 'rO0ABXNyACdjb20ucmF5b28uY29tbW9uLnBvam8uVXNlckNyZWRlbnRpYWxzVm8AAAAAAAAAAQIAA0wACHBhc3N3b3JkdAASTGphdmEvbGFuZy9TdHJpbmc7TAAJdXNlckVtYWlscQB AAFMAAZ1c2VySWRxAH4AAXhwdABAYmI4OWNiMzBiZTFkYWE2MDlmMDQ5ZjA5MzJmZjhkNzY0NTE0ZWRkM2E1YmY2ZWZhOTc2MWEzMDllNjJiZjMyY3QACzEzMjUyNzI5MTg1dAATMjAyMjIwMjI5OTkwMDEwMTMzMw==',
-    //             timestamp: '1547021484497',
-    //             summary: '4f4c4bd48f982cdb023a13f62eac0fda',
-    //             platform_code: 'H5'
+    //             username:
     //           }
 			
 	// 	}).then(res=>{

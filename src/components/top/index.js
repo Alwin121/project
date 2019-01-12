@@ -87,7 +87,7 @@ class Top extends React.Component {
   }
 componentDidMount(){
   store.subscribe(()=>{
-    console.log(store.getState().titleReducer,444444444444444)
+    // console.log(store.getState().titleReducer,444444444444444)
     this.setState({
       name:store.getState().titleReducer
     })

@@ -17,9 +17,9 @@ class Productlist extends Component {
 			}
 			   
 		   </ul>
-		   {this.state.looplist.length?<Categoryid name={this.state.looplist}></Categoryid>:null}
+		   {this.state.looplist.length?<Categoryid name={this.state.looplist} {...this.props}></Categoryid>:null}
 	   </header>
-  {localStorage.getItem("name")}
+  {/* {localStorage.getItem("name")} */}
 		</div>
 	}
 	

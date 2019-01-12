@@ -37,23 +37,21 @@ class Index extends Component {
 		axios({
 			url:`http://www.mei.com/appapi/home/eventForH5?params=%7B%7D&timestamp=1546942566729&summary=ba15bb44512a794772ce0a8c7da059e2&platform_code=H5`
 		}).then(res=>{
-			//console.log(res.data.lists)
+			console.log(res.data.lists,444)
 			this.setState({
 				datalist:res.data.lists
 
 			})
 		})
 
-		axios({
-			url:``
-		})
+		
 	  }
 	render(){
 		//console.log(this);
 		return <div>
 			<Header/>
 			<div className="div_box">
-				<img src={this.state.banner.main_image}/>
+				<img src={this.state.banner.main_image} onClick={this.handleClick.bind(this,this.state.banner.link_url)}/>
 				<p className="p_one">{this.state.banner.main_title}</p>
 				<p className="p_two">{this.state.banner.sub_title}</p>
 			</div>
@@ -67,7 +65,7 @@ class Index extends Component {
 					<div key={item.name} className="div_big">
 						<h1>{item.name}</h1>
 						{item.events.map(list=>
-							<div key={list.categoryId} className="div_inside">
+							<div key={list.categoryId} className="div_inside" onClick={this.handleUlClick.bind(this,list.categoryId)}>
 								<img src={list.imageUrl}/>
 								<ul className="index_ul">
 									<li className="index_li">{list.englishName}</li>
@@ -83,6 +81,19 @@ class Index extends Component {
 		</div>
 		
 	}
+
+	handleClick(logoId) {
+		//console.log(logoId)
+		logoId = logoId.split('/')[4]
+		this.props.history.push(`/brand/${logoId}`)
+	}
+
+
+	handleUlClick(id){
+		console.log(id,2222)
+		this.props.history.push(`/productlist/${id}`);
+	}
+
 }
 
 export default Index

@@ -10,8 +10,8 @@ class Shoppingcar extends Component {
 		
 		this.state = {
 			datalist:[],
-			allChecked:false,
-			check:[],
+			
+			checkedAll:false,
 			shoppingcarlist:[
 				{	
 					id:1,
@@ -20,7 +20,7 @@ class Shoppingcar extends Component {
 					number:1,
 					url:"https://cdn15.mei.com/product/GVC-245-00011/GVC-245-00011a.jpg@182w_242h_2e_65q",
 					description:"黑马纹棒球领皮外套",
-					isCheck:false
+					checked:false
 				},
 				{	
 					id:2,
@@ -29,18 +29,18 @@ class Shoppingcar extends Component {
 					number:1,
 					url:"https://cdn15.mei.com/product/PL5-409-00189/PL5-409-00189a.jpg@225w_300h_2e_100q",
 					description:"灰黑色拼接女士长靴",
-					isCheck:false
+					checked:false
 				}
 			]
 		}
 	}
 
 	componentDidMount(){
+	
 		axios({
 			url:"http://www.mei.com/appapi/product/maybeLike/v3?pageIndex=1"
 		}).then(res=>{
 			// console.log(res.data.products)
-			
 			this.setState({
 				datalist:res.data.products
 				
@@ -56,16 +56,21 @@ class Shoppingcar extends Component {
 					<ul className="products_ul">
 						{
 							this.state.shoppingcarlist.map((list,index)=>{
+								{console.log(list)}
 								return (
 									<li key={list.name}>
-										<label onClick={this.handleClick.bind(this)}><input type="checkbox" /></label>
+									
+										<label >
+										<input type="checkbox" checked={list.checked} 
+										onChange={(e)=>this.handleClick(index,e)}/></label>
 										<img src={list.url}/>
 										<div className="products_right">
 											<p>{list.name}</p>
 											<p>
+												
 												<button onClick={this.handleAddClick.bind(this,index)}>+</button>
 												<span>{list.number}</span>
-												<button>-</button>
+												<button onClick={this.handleSubClick.bind(this,index)}>-</button>
 											</p>
 											<p>{list.description}</p>
 											<p>{list.price}</p>
@@ -76,8 +81,8 @@ class Shoppingcar extends Component {
 							})
 						}
 						<div className="products_all">
-							<label><input type="checkbox"  onClick={this.onAllClick.bind(this)} />全选</label>
-							<p>总金额:</p>
+							<label><input type="checkbox" ref="quanxuan" onChange={(e)=>{this.onAllClick(e)}}/>全选</label>
+							{/* <p>总金额:</p> */}
 						</div>
 					</ul>
 				:<div className="shoppingcar_div_box">
@@ -109,48 +114,65 @@ class Shoppingcar extends Component {
 		this.setState({
 			shoppingcarlist:list
 		})
-		// console.log(this.refs.sss1.innerHTML)
-		// var aaa = parseInt(this.refs.sss1.innerHTML)
-		// console.log(aaa,222)
-		// this.refs.sss1.innerHTML=aaa+1
-		// this.setState({
-		// 	shoppingcarlist.number:aaa
-		// })
+		
 		
 	}
 
-	// onAllClick(){
-	// 	this.setState({
-	// 		allChecked:!this.state.allChecked
-	// 	})
-	// }
-	handleClick(index){
+	handleSubClick(index,number){
 		
-		if(this.state.check.length === this.state.shoppingcarlist.length){
-			this.setState({
-				allChecked:true
-			})
-			// console.log(this.state.allChecked)
-		}else{
-			this.setState({
-				allChecked:false
-			})
-			console.log(this.state.allChecked)
+		var list2 = [...this.state.shoppingcarlist]
+		list2[index].number--
+		if(list2[index].number<0){
+			list2[index].number=0
 		}
+		this.setState({
+			shoppingcarlist:list2
+		}) 
+	}
+
+	onAllClick(e){
+		console.log(e);
+		if(e.target.checked==true){
+            this.setState({
+                shoppingcarlist:this.state.shoppingcarlist.map((ele,index)=>{
+					console.log(ele)
+                    ele.checked=true
+                    return ele
+                })
+            })
+ 
+        }else if(e.target.checked==false){
+			console.log(e.target.checked);
+            this.setState({
+			
+                shoppingcarlist:this.state.shoppingcarlist.map((ele,index)=>{
+					ele.checked=false
+                    return ele
+                })
+            })
+        }
+
+	}
 	
+	handleClick(i,e){
+		var ccc=this.state.shoppingcarlist.map((ele,index)=>{
+				
+			if(index==i){
+				console.log(ele.checked)
+				ele.checked=e.target.checked
+				return ele
+			}else {
+				return ele
+			}
+		})
+				this.setState({
+					shoppingcarlist:ccc
+				})
+			
+		
 	}
 
-	onAllClick(){
-		if(this.state.allChecked === true){
-			this.setState({
-				check:this.state.shoppingcarlist
-			})
-		}else{
-			this.setState({
-				check:[]
-			})
-		}
-	}
+
 
 	handleDelClick(index){
 	
@@ -160,6 +182,23 @@ class Shoppingcar extends Component {
 			shoppingcarlist:mylist
 		})
 	}
+	componentDidUpdate(){
+       
+        var bool=this.state.shoppingcarlist.every((ele,index)=>{
+			console.log(ele)
+            if(ele.checked==true){
+                return true
+            }else {
+                return false
+            }
+        })
+		
+        if(bool==true){
+            this.refs.quanxuan.checked=true
+        }else {
+            this.refs.quanxuan.checked=false
+        }
+    }
 
 	
 }
