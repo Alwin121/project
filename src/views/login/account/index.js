@@ -43,7 +43,7 @@ class Mobile extends Component {
 			}
 		}).then(res=>{
 			if(res.data.ok===1){
-				this.props.history.push(`/personalcenter/${JSON.parse(res.config.data).username}`)
+				this.props.history.push(`/silo`)
 				console.log(JSON.parse(res.config.data).username)
 				document.cookie=`username=${JSON.parse(res.config.data).username}; expires=Thu, 18 Dec 2043 12:00:00 GMT; path=/`;
 				// document.cookie="username=lys; expires=Thu, 18 Dec 2000 12:00:00 GMT; path=/";

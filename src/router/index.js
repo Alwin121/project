@@ -23,12 +23,22 @@ import newmenbers from "../views/newmenbers"
 import brand from "../views/brand"
 import productlist from "../views/productlist"
 import brandwall from "../views/brandwall"
-import personalcenter from "../views/personalcenter"
+import Personalcenter from "../views/personalcenter"
 import shoppingcar from "../views/shoppingcar"
 import index2 from "../views/silo/index2"
 import {Provider} from "react-redux" //让每个容器组件拿到状态 
 import store from "../store"
 import prodectdetail from '../views/prodectdetail'
+function checkLogin(){
+	console.log(document.cookie,8888888)
+	if(document.cookie){
+		return false
+
+	}
+	else {
+		return true
+	}
+}
 const router = (
 
 	<Provider store={store}>
@@ -55,7 +65,8 @@ const router = (
 				//console.log(res)
 			return <Login {...res}>
 				    <Switch>
-						<Route path="/login/mobile" component={mobile}/>
+						<Route path="/login/mobile" render={()=>checkLogin()?<Redirect to = "/login/account"/>:<Redirect to = "/Personalcenter"/>}/>
+
 						<Route path="/login/account" component={account}/>
 					</Switch>
 				</Login>}
@@ -66,7 +77,7 @@ const router = (
 			<Route path="/brand/:id" component={brand} exact/>
 			<Route path="/productlist/:id" component={productlist} exact/>
 			<Route path="/brandwall" component={brandwall}/>
-			<Route path="/personalcenter/:id" component={personalcenter}/>
+			<Route path="/personalcenter" component={Personalcenter}/>
 			<Route path="/shoppingcar" component={shoppingcar}/>
 			<Redirect from="*" to="/silo"/>
 			</Switch>

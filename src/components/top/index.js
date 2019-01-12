@@ -75,7 +75,7 @@ class Top extends React.Component {
         }
       >
 	  
-        <p className="Top_name">{this.state.name}</p>
+        <p className="Top_name">{this.state.name}{this.props.shopcar}</p>
 
       </NavBar>
     </div>);
