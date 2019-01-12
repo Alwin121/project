@@ -2,7 +2,7 @@ import React,{Component} from "react"
 import axios from "axios"
 import "./index.scss"
 import {NavLink} from "react-router-dom"
-
+import Top from "../../components/top"
 // import Top from "../../components/top"
 class Shoppingcar extends Component {
 	constructor(props){
@@ -13,24 +13,24 @@ class Shoppingcar extends Component {
 			totalPrice:0,
 			checkedAll:false,
 			shoppingcarlist:[
-				{	
-					id:1,
-					name:"黑马",
-					price:"￥4469",
-					number:1,
-					url:"https://cdn15.mei.com/product/GVC-245-00011/GVC-245-00011a.jpg@182w_242h_2e_65q",
-					description:"黑马纹棒球领皮外套",
-					checked:false
-				},
-				{	
-					id:2,
-					name:"长靴",
-					price:"￥2680",
-					number:1,
-					url:"https://cdn15.mei.com/product/PL5-409-00189/PL5-409-00189a.jpg@225w_300h_2e_100q",
-					description:"灰黑色拼接女士长靴",
-					checked:false
-				}
+				// {	
+				// 	id:1,
+				// 	name:"黑马",
+				// 	price:"￥4469",
+				// 	number:1,
+				// 	url:"https://cdn15.mei.com/product/GVC-245-00011/GVC-245-00011a.jpg@182w_242h_2e_65q",
+				// 	description:"黑马纹棒球领皮外套",
+				// 	checked:false
+				// },
+				// {	
+				// 	id:2,
+				// 	name:"长靴",
+				// 	price:"￥2680",
+				// 	number:1,
+				// 	url:"https://cdn15.mei.com/product/PL5-409-00189/PL5-409-00189a.jpg@225w_300h_2e_100q",
+				// 	description:"灰黑色拼接女士长靴",
+				// 	checked:false
+				// }
 			]
 		}
 	}
@@ -38,8 +38,18 @@ class Shoppingcar extends Component {
 	componentDidMount(){
 		axios({
 			url:"/shopcars/check",
-			method:""
+			method:"post",
+			data:{
+				username:document.cookie.split('=')[1],
+			}
+		}).then(res=>{
+			console.log(res,1111)
+			this.setState({
+				shoppingcarlist:res.data
+			})
 		})
+
+	
 		axios({
 			url:"http://www.mei.com/appapi/product/maybeLike/v3?pageIndex=1"
 		}).then(res=>{
@@ -54,6 +64,7 @@ class Shoppingcar extends Component {
 	render(){
 		
 		return <div>
+			<Top shopcar='购物车'  {...this.props}/>
 			{
 				this.state.shoppingcarlist.length?
 					<ul className="products_ul">
@@ -61,24 +72,24 @@ class Shoppingcar extends Component {
 							this.state.shoppingcarlist.map((list,index)=>{
 								{console.log(list)}
 								return (
-									<li key={list.name}>
+									<li key={list.productName}>
 									
 										<label >
 										<input type="checkbox" checked={list.checked} 
 										onChange={(e)=>this.handleClick(index,e)}/></label>
-										<img src={list.url}/>
+										<img src={list.imgpath}/>
 										<div className="products_right">
-											<p>{list.name}</p>
+											<p>{list.productName}</p>
 											<p>
 												
 												<button onClick={this.handleAddClick.bind(this,index)}>+</button>
-												<span>{list.number}</span>
+												<span>{list.count}</span>
 												<button onClick={this.handleSubClick.bind(this,index)}>-</button>
 											</p>
-											<p>{list.description}</p>
+											<p>{list.describle}</p>
 											<p>{list.price}</p>
 										</div>
-										<button className="products_delete" onClick={this.handleDelClick.bind(this,index)} >删除</button>
+										<button className="products_delete" onClick={this.handleDelClick.bind(this,index,list)} >删除</button>
 									</li>
 								)
 							})
@@ -88,17 +99,17 @@ class Shoppingcar extends Component {
 							<p>总金额:</p>
 						</div>
 					</ul>
-				:<div className="shoppingcar_div_box" >
+				:<div className="shoppingcar_div_box">
 					<p className="shoppingcar_first_p">购物袋是空的哦~</p>
 					<p className="shoppingcar_two_p"><NavLink to="/silo/index2" >去抢购</NavLink></p>
 					<h3 className="shoppingcar_h3">
 						<span>为你推荐</span>
 					</h3>
-					<ul className="shoppingcar_ul" >
+					<ul className="shoppingcar_ul">
 						{this.state.datalist.map(item=>{
 							return (
 								<li key={item.productId} onClick={this.handleClickdel.bind(this,item.productId)}>
-									<img src={item.imageUrl}/>
+								<img src={item.imageUrl} />
 									<p className="shoppingcar_introduce">{item.productName}</p>
 							</li>)
 						}
@@ -111,15 +122,14 @@ class Shoppingcar extends Component {
 	}
 
 	handleClickdel(id){
-			this.props.history.push(`/prodectdetail/${id}`);
-		  }
-
+		this.props.history.push(`/prodectdetail/${id}`);
+	  }
 
 	handleAddClick(index){
 
 		var list = [...this.state.shoppingcarlist]
 		console.log(this)
-		list[index].number++
+		list[index].count++
 		this.setState({
 			shoppingcarlist:list
 		})
@@ -130,9 +140,9 @@ class Shoppingcar extends Component {
 	handleSubClick(index,number){
 		
 		var list2 = [...this.state.shoppingcarlist]
-		list2[index].number--
-		if(list2[index].number<0){
-			list2[index].number=0
+		list2[index].count--
+		if(list2[index].count<0){
+			list2[index].count=0
 		}
 		this.setState({
 			shoppingcarlist:list2
@@ -161,20 +171,19 @@ class Shoppingcar extends Component {
             })
 		}
 		
-		// this.SumPrice()
+		this.SumPrice()
 
 	}
 	
-	// SumPrice=(ele)=>{
-    //     var sum=0
-    //     this.state.shoppingcarlist.forEach((ele,index)=>{
-	// 		sum+=ele.number*ele.price
-	// 		this.refs.all.totalPrice = sum
-    //     })
-    //     this.setState({
-	// 		totalPrice:sum			
-    //     })
-	// }
+	SumPrice=()=>{
+        var sum=0
+        this.state.shoppingcarlist.forEach((ele,index)=>{
+            sum+=ele.number*ele.price
+        })
+        this.setState({
+            totalPrice:sum
+        })
+	}
 	
 
 	handleClick(i,e){
@@ -197,13 +206,24 @@ class Shoppingcar extends Component {
 
 
 
-	handleDelClick(index){
+	handleDelClick(index,list){
+		axios({
+			url:"/shopcars/delete",
+			method:"post",
+			data:{
+				//username:document.cookie.split('=')[1],
+				ProductName:list.productName
+			}
+		}).then(res=>{
+			console.log(res,33333333333333333333)
+		})
 	
 		var mylist = [...this.state.shoppingcarlist]
 		mylist.splice(index,1)
 		this.setState({
 			shoppingcarlist:mylist
 		})
+		
 	}
 	componentDidUpdate(){
        
