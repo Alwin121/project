@@ -84,7 +84,7 @@ class Demo extends React.Component {
 		  {this.state.data.map(i => (
 			<div className="crossborder_div" key={i.categoryId}>
 			<img onClick={this.rout.bind(this,i)} className="crossborder_img"  src={i.imageUrl} style={{ textAlign: 'center', padding: 20 }}/>
-			<ul className="crossborder_ul">
+			<ul onClick={this.rout.bind(this,i)}  className="crossborder_ul">
 				<li className="crossborder_li1">海外直发</li>
 				<li className="crossborder_li2">{i.englishName}</li>
 				<li className="crossborder_li3">{i.chineseName}</li>

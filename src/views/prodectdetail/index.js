@@ -88,7 +88,7 @@ class Prodectdetail extends Component {
 				</div>
 				<Drawer></Drawer>
 				{/* <Drawer isSHow={this.state.isShow?true:false}></Drawer> */}
-				<Bottom></Bottom>
+				<Bottom detail={this.state.data} {...this.props}></Bottom>
 				</div>
 				:null
 			}
