@@ -27,20 +27,27 @@ class Bottom extends Component {
 		this.props.history.push('/shoppingcar')
 	}
 	addshop(){
-		console.log(this.state.data,111111111111111)
-		axios({
-			url:'/shopcars/addproduct',
-			method:'post',
-			data:{
-				productName:this.state.data.name,
-				price:this.state.data.price,
-				count:1,
-				describle:this.state.data.brand_story,
-				imgpath:this.state.data.images[0].smallImgUrl
-			}
-		}).then(res=>{
-			console.log(res)
-		})
+		if(document.cookie){
+			axios({
+				url:'/shopcars/addproduct',
+				method:'post',
+				data:{
+					username:document.cookie.split('=')[1],
+					productName:this.state.data.name,
+					price:this.state.data.price,
+					count:1,
+					describle:this.state.data.brand_story,
+					imgpath:this.state.data.images[0].smallImgUrl
+				}
+			}).then(res=>{
+				console.log(res)
+			})
+		}else{
+			this.props.history.push('/login/account')
+		}
+		
+		
+		
 	}
 	buy(){
 		alert('该功能未实现')
