@@ -43,7 +43,8 @@ class Mobile extends Component {
 			}
 		}).then(res=>{
 			if(res.data.ok===1){
-				this.props.history.push('/personalcenter')
+				this.props.history.push(`/personalcenter/${JSON.parse(res.config.data).username}`)
+				console.log(JSON.parse(res.config.data).username)
 			} else {
 				alert('-----请输入自己的账号！-_-')
 			}

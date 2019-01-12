@@ -3,6 +3,7 @@ import {getBanner,getList} from './model'
 import './index.scss'
 import Demo from './components/Demo'
 import Header from "../../../components/header"
+import axios from 'axios'
 
 class Men extends Component {
 	constructor(props){
