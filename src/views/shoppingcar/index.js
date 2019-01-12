@@ -10,7 +10,7 @@ class Shoppingcar extends Component {
 		
 		this.state = {
 			datalist:[],
-			
+			totalPrice:0,
 			checkedAll:false,
 			shoppingcarlist:[
 				{	
@@ -36,7 +36,10 @@ class Shoppingcar extends Component {
 	}
 
 	componentDidMount(){
-	
+		axios({
+			url:"/shopcars/check",
+			method:""
+		})
 		axios({
 			url:"http://www.mei.com/appapi/product/maybeLike/v3?pageIndex=1"
 		}).then(res=>{
@@ -82,19 +85,20 @@ class Shoppingcar extends Component {
 						}
 						<div className="products_all">
 							<label><input type="checkbox" ref="quanxuan" onChange={(e)=>{this.onAllClick(e)}}/>全选</label>
-							{/* <p>总金额:</p> */}
+							<p>总金额:</p>
 						</div>
 					</ul>
-				:<div className="shoppingcar_div_box">
+				:<div className="shoppingcar_div_box" >
 					<p className="shoppingcar_first_p">购物袋是空的哦~</p>
 					<p className="shoppingcar_two_p"><NavLink to="/silo/index2" >去抢购</NavLink></p>
 					<h3 className="shoppingcar_h3">
 						<span>为你推荐</span>
 					</h3>
-					<ul className="shoppingcar_ul">
+					<ul className="shoppingcar_ul" >
 						{this.state.datalist.map(item=>{
 							return (
-								<li key={item.productId}><img src={item.imageUrl} />
+								<li key={item.productId} onClick={this.handleClickdel.bind(this,item.productId)}>
+									<img src={item.imageUrl}/>
 									<p className="shoppingcar_introduce">{item.productName}</p>
 							</li>)
 						}
@@ -105,6 +109,11 @@ class Shoppingcar extends Component {
 				
 		</div>
 	}
+
+	handleClickdel(id){
+			this.props.history.push(`/prodectdetail/${id}`);
+		  }
+
 
 	handleAddClick(index){
 
@@ -150,10 +159,24 @@ class Shoppingcar extends Component {
                     return ele
                 })
             })
-        }
+		}
+		
+		// this.SumPrice()
 
 	}
 	
+	// SumPrice=(ele)=>{
+    //     var sum=0
+    //     this.state.shoppingcarlist.forEach((ele,index)=>{
+	// 		sum+=ele.number*ele.price
+	// 		this.refs.all.totalPrice = sum
+    //     })
+    //     this.setState({
+	// 		totalPrice:sum			
+    //     })
+	// }
+	
+
 	handleClick(i,e){
 		var ccc=this.state.shoppingcarlist.map((ele,index)=>{
 				
@@ -193,14 +216,16 @@ class Shoppingcar extends Component {
             }
         })
 		
-        if(bool==true){
-            this.refs.quanxuan.checked=true
-        }else {
-            this.refs.quanxuan.checked=false
-        }
+        // if(bool==true){
+        //     this.refs.quanxuan.checked=true
+        // }else {
+        //     this.refs.quanxuan.checked=false
+        // }
     }
-
+	
 	
 }
+
+
 
 export default Shoppingcar
